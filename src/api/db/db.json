@@ -2,7 +2,7 @@
   "characters": [
     {
       "id": 1,
-      "owner": "kenzie",
+      "owner": 1,
       "name": "Tantis",
       "race": "ELF.WOOD",
       "age": 150,

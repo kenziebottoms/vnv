@@ -1,5 +1,5 @@
 <template>
-  <section id="stats">
+  <section class="statGrid" id="stats">
     {{stats.STR}}
     {{stats.DEX}}
     {{stats.CON}}
