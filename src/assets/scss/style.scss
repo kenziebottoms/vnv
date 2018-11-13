@@ -1,30 +1,41 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
 }
+.box-shadow-shallow {
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+}
+.box-shadow-medium {
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 5px 8px 0 rgba(0,0,0,.14),0 1px 14px 0 rgba(0,0,0,.12);
+}
 .statGrid {
   display: inline-block;
   > div {
     display: grid;
+    grid-gap: 3rem;
     grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     > div {
-      padding: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       button.mdc-button--raised {
-        font-size: 1.15rem;
-        background-color: rgb(174, 177, 206);
         &:nth-child(1) {
           background-color: rgb(57, 61, 104);
         }
       }
       > div {
-        padding: 2rem 1rem;
-        font-size: 3rem;
-        font-weight: 100;
+        &:nth-child(1) {
+          padding: 0.5rem;
+          align-self: stretch;
+          background-color: rgb(174, 177, 206);
+        }
+        &:nth-child(2) {
+          padding: 2rem 1rem;
+          font-size: 3rem;
+          font-weight: 100;
+        }
       }
     }
   }

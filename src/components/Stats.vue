@@ -1,10 +1,13 @@
 <template>
   <section class="statGrid" id="stats">
     <div>
-      <div class="mdc-elevation--z4" v-for="(key, val) in stats" :key="key">
-        <button class="mdc-button mdc-button--raised">{{key}}</button>
-        <div>{{getModifier(key)}}</div>
-        <button class="mdc-button mdc-button--raised">{{val}}</button>
+      <div class="box-shadow-medium" v-for="(key, val) in stats" :key="key">
+        <div class="stat-label">
+          <span>{{val}}</span>
+          <button v-on:click="$emit('roll', 1, 20)">Roll</button>
+        </div>
+        <div class="modifier">{{getModifier(key)}}</div>
+        <div class="stat">{{key}}</div>
       </div>
     </div>
   </section>
