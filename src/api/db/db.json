@@ -30,22 +30,14 @@
       "created": "2018-11-13T10:43:00"
     },
     {
-      "username": "kenzie",
+      "username": "travis",
+      "created": 1542137792802,
       "id": 2
     },
     {
-      "username": "kenzie",
+      "username": "justin",
+      "created": 1542139346954,
       "id": 3
-    },
-    {
-      "username": "user",
-      "created": 1542132991440,
-      "id": 4
-    },
-    {
-      "username": "what",
-      "created": 1542133073853,
-      "id": 5
     }
   ]
 }
