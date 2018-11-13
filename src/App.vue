@@ -1,28 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <section v-if="activeUser">
+      Welcome, {{activeUser.username}}
+      <button @click="logout">Log out</button>
+      <stats
+        :stats="activeUser.stats"
+      ></stats>
+    </section>
+    <section v-else>
+      select user
+    </section>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Stats from './components/Stats.vue'
+import users from './api/users'
+let { getUser, createUser } = users
+const ls = window.localStorage
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    Stats,
+  },
+  async created() {
+    this.activeUser = await this.getActiveUser()
+  },
+  data() {
+    return {
+      activeUser: null,
+    }
+  },
+  methods: {
+    async getActiveUser() {
+      if (ls.getItem('vnvUserId')) {
+        let userId = ls.getItem('vnvUserId')
+        return getUser(userId)
+      } else {
+        return null
+      }
+    },
+    logout() {
+      ls.removeItem('vnvUserId')
+      this.activeUser = null
+    },
+  },
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

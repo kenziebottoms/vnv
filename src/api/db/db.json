@@ -15,6 +15,12 @@
         "CHA": 11,
         "HP": 8
       }
+    },
+    {
+      "owner": "kenzie",
+      "name": "Nemesis",
+      "race": "TIEFLING",
+      "id": 2
     }
   ],
   "users": [
@@ -22,6 +28,24 @@
       "id": 1,
       "username": "kenzie",
       "created": "2018-11-13T10:43:00"
+    },
+    {
+      "username": "kenzie",
+      "id": 2
+    },
+    {
+      "username": "kenzie",
+      "id": 3
+    },
+    {
+      "username": "user",
+      "created": 1542132991440,
+      "id": 4
+    },
+    {
+      "username": "what",
+      "created": 1542133073853,
+      "id": 5
     }
   ]
 }
