@@ -1,6 +1,7 @@
 {
-  "characters": {
-    "1": {
+  "characters": [
+    {
+      "id": 1,
       "owner": "kenzie",
       "name": "Tantis",
       "race": "ELF.WOOD",
@@ -15,10 +16,12 @@
         "HP": 8
       }
     }
-  },
-  "users": {
-    "kenzie": {
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "kenzie",
       "created": "2018-11-13T10:43:00"
     }
-  }
+  ]
 }
