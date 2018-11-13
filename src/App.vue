@@ -6,19 +6,21 @@
         :stats="activeUser.stats"
       ></stats>
     </section>
-    <user-select
-      :users="users"
+    <dropdown
+      id="user"
+      :label="'Select a user'"
+      :items="users"
+      :displayProp="'username'"
       :selected.sync="activeUserId"
       @select="activateUser"
-    >
-    </user-select>
+    ></dropdown>
     <button @click="createUser" type="button">New User</button>
   </div>
 </template>
 
 <script>
 import Stats from './components/Stats.vue'
-import UserSelect from './components/UserSelect.vue'
+import Dropdown from './components/Dropdown.vue'
 import users from './api/users'
 let { getUser, createUser, getAllUsers } = users
 const ls = window.localStorage
@@ -27,7 +29,7 @@ export default {
   name: 'app',
   components: {
     Stats,
-    UserSelect,
+    Dropdown,
   },
   computed: {
     activeUser() {
