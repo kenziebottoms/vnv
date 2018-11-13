@@ -1,0 +1,24 @@
+{
+  "characters": {
+    "1": {
+      "owner": "kenzie",
+      "name": "Tantis",
+      "race": "ELF.WOOD",
+      "age": 150,
+      "baseStats": {
+        "STR": 8,
+        "DEX": 12,
+        "CON": 15,
+        "INT": 14,
+        "WIS": 16,
+        "CHA": 11,
+        "HP": 8
+      }
+    }
+  },
+  "users": {
+    "kenzie": {
+      "created": "2018-11-13T10:43:00"
+    }
+  }
+}

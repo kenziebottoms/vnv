@@ -1,0 +1,42 @@
+{
+  "races": {
+    "ELF": {
+      "name": "Elf",
+      "stats": {
+        "DEX": 2
+      },
+      "traits": {
+        "DARKVISION": 60,
+        "LANGUAGES": ["Common", "Elvish"],
+        "SPEED": 30
+      },
+      "subraces": {
+        "WOOD": {
+          "name": "Wood Elf",
+          "stats": {
+            "WIS": 1
+          },
+          "traits": {
+            "SPEED": 35
+          }
+        },
+        "HIGH": {
+          "name": "High Elf",
+          "stats": {
+            "INT": 1
+          },
+          "LANGUAGES": [1],
+          "SPELLS": [0]
+        },
+        "MARK_OF_SHADOWS": {
+          "name": "Mark of Shadows Elf",
+          "stats": {
+            "CHA": 1
+          },
+          "spells": ["Minor Illusion"],
+          "proficiencies": ["PERFORMANCE"]
+        }
+      }
+    }
+  }
+}
