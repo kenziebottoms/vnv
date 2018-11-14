@@ -5,6 +5,7 @@
       "owner": 1,
       "name": "Tantis",
       "race": "ELF.WOOD",
+      "created": 1542137792002,
       "age": 150,
       "baseStats": {
         "STR": 8,
@@ -17,17 +18,30 @@
       }
     },
     {
-      "owner": "kenzie",
+      "owner": 1,
       "name": "Nemesis",
       "race": "TIEFLING",
+      "created": 1542137792002,
       "id": 2
+    },
+    {
+      "name": "Magnus",
+      "created": 1542211963862,
+      "owner": 2,
+      "id": 3
+    },
+    {
+      "name": "Taako",
+      "created": 1542212038378,
+      "owner": 3,
+      "id": 4
     }
   ],
   "users": [
     {
-      "id": 1,
       "username": "kenzie",
-      "created": "2018-11-13T10:43:00"
+      "created": 1542137792002,
+      "id": 1
     },
     {
       "username": "travis",

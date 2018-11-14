@@ -8,8 +8,7 @@
       :label="'Select a user'"
       :items="users"
       :displayProp="'username'"
-      :selected.sync="activeUserId"
-      @select="activateUser"
+      v-model="activeUserId"
     ></dropdown>
     <button @click="createUser" type="button">New User</button>
     <hr>
@@ -19,14 +18,12 @@
       :label="'Select a character'"
       :items="characters"
       :displayProp="'name'"
-      :selected.sync="activeCharacterId"
-      @select="activateCharacter"
+      v-model="activeCharacterId"
     ></dropdown>
     <button @click="createCharacter" type="button">New Character</button>
     <section v-if="characters && activeCharacterId">
       <character-info
-        v-if="activeCharacter"
-        :char="activeCharacter"
+        v-model="activeCharacter"
       ></character-info>
     </section>
   </div>
@@ -111,6 +108,7 @@ export default {
     },
     async createUser() {
       let username = prompt('username?')
+      if (username == '') return null
       let user = await createUser({
         username,
         created: Date.now(),
@@ -129,10 +127,12 @@ export default {
       this.activeCharacterId = char.id
     },
     activateUser(id) {
+      console.log('activating ' + id)
       this.activeUserId = this.users.find(u => u.id == id).id
     },
-    activateCharacter(id) {
-      this.activeCharacterId = this.characters.find(c => c.id == id).id
+    activateCharacter(e) {
+      console.log(e)
+      // this.activeCharacterId = this.characters.find(c => c.id == id).id
     },
   },
 }

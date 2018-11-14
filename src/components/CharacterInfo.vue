@@ -1,9 +1,9 @@
 <template>
-  <section>
-    <h3>Base stats</h3>
-    <stats v-if="char.baseStats"
-      :stats="char.baseStats"
-    ></stats>
+  <section v-if="value">
+    <section v-if="value.baseStats">
+      <h3>Base stats</h3>
+      <stats :stats="value.baseStats"></stats>
+    </section>
   </section>
 </template>
 <script>
@@ -13,7 +13,7 @@ export default {
     Stats,
   },
   props: {
-    char: Object,
+    value: Object,
   },
 }
 </script>

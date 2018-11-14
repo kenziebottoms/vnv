@@ -1,7 +1,7 @@
 <template>
   <section class="statGrid" id="stats">
     <div>
-      <div class="box-shadow-medium" v-for="(key, val) in stats" :key="key">
+      <div class="box-shadow-medium" v-for="(key, val) in stats" :key="val">
         <div class="stat-label">
           <span>{{val}}</span>
           <button v-on:click="$emit('roll', 1, 20)">Roll</button>

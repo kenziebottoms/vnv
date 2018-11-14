@@ -1,12 +1,13 @@
 <template>
-  <select>
+  <select
+    @input="e => {$emit('input', e.target.value)}"
+  >
     <option default value="">{{label}}</option>
     <option
-      :value="item.id"
       v-for="item in items"
       :key="item.id"
-      :selected="item.id==selected"
-      v-on:click="$emit('select', item.id)"
+      :value="item.id"
+      :selected="item.id==value"
     >
       {{item[displayProp]}}
     </option>
@@ -17,7 +18,7 @@ export default {
   props: {
     label: String,
     items: Array,
-    selected: String,
+    value: String,
     displayProp: String,
   },
 }
