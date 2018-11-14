@@ -5,10 +5,12 @@
     </section>
     <dropdown
       id="user"
+      v-if="users"
       :label="'Select a user'"
       :items="users"
       :displayProp="'username'"
       v-model="activeUserId"
+      @input="activateUser"
     ></dropdown>
     <button @click="createUser" type="button">New User</button>
     <hr>
@@ -19,11 +21,12 @@
       :items="characters"
       :displayProp="'name'"
       v-model="activeCharacterId"
+      @input="activateCharacter"
     ></dropdown>
     <button @click="createCharacter" type="button">New Character</button>
     <section v-if="characters && activeCharacterId">
       <character-info
-        v-model="activeCharacter"
+        :char="activeCharacter"
       ></character-info>
     </section>
   </div>
@@ -65,27 +68,6 @@ export default {
         return null
       }
     },
-    activeUserId: {
-      get() {
-        return ls.getItem('vnvUserId') || null
-      },
-      set(item) {
-        ls.setItem('vnvUserId', item)
-        this.activeCharacterId = null
-        this.characters = null
-        this.getUsersCharacters(item)
-      },
-    },
-    activeCharacterId: {
-      get() {
-        if (ls.getItem('vnvCharId')) {
-          return ls.getItem('vnvCharId')
-        }
-      },
-      set(item) {
-        ls.setItem('vnvCharId', item)
-      },
-    },
   },
   created() {
     this.getAllUsers()
@@ -97,6 +79,8 @@ export default {
     return {
       users: [],
       characters: [],
+      activeUserId: null,
+      activeCharacterId: null,
     }
   },
   methods: {
@@ -127,12 +111,25 @@ export default {
       this.activeCharacterId = char.id
     },
     activateUser(id) {
-      console.log('activating ' + id)
-      this.activeUserId = this.users.find(u => u.id == id).id
+      this.activeUserId = id
     },
-    activateCharacter(e) {
-      console.log(e)
-      // this.activeCharacterId = this.characters.find(c => c.id == id).id
+    activateCharacter(id) {
+      this.activeCharacterId = id
+    },
+  },
+  mounted() {
+    if (ls.getItem('vnvUserId'))
+      this.activeUserId = parseInt(ls.getItem('vnvUserId'))
+    if (ls.getItem('vnvCharId'))
+      this.activeCharacterId = parseInt(ls.getItem('vnvCharId'))
+  },
+  watch: {
+    activeUserId(newId) {
+      ls.setItem('vnvUserId', newId)
+      this.getUsersCharacters(newId)
+    },
+    activeCharacterId(newId) {
+      ls.setItem('vnvCharId', newId)
     },
   },
 }

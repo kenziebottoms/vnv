@@ -1,6 +1,6 @@
 <template>
   <select
-    @input="e => {$emit('input', e.target.value)}"
+    @input="e => {$emit('input', parseInt(e.target.value))}"
   >
     <option default value="">{{label}}</option>
     <option
@@ -18,7 +18,7 @@ export default {
   props: {
     label: String,
     items: Array,
-    value: String,
+    value: Number,
     displayProp: String,
   },
 }
