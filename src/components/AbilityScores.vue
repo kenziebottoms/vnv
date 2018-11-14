@@ -1,7 +1,7 @@
 <template>
   <section class="statGrid" id="abilityScores">
     <div>
-      <div class="box-shadow-medium" v-for="(key, val) in currentAbilityScores" :key="val">
+      <div class="z-depth-2" v-for="(key, val) in currentAbilityScores" :key="val">
         <div class="stat-label">
           <span>{{val}}</span>
           <roll-button :mod="parseInt(getModifier(key))"></roll-button>

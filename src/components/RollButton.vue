@@ -4,7 +4,7 @@
       v-if="showButton"
       @click="roll(die, mod)"
     >
-      Roll
+      {{label || 'Roll'}}
     </button>
     <div v-else>
       {{result}}
@@ -42,6 +42,7 @@ export default {
       type: Number,
       default: 20,
     },
+    label: String,
     mod: {
       type: Number,
       default: 0,

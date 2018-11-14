@@ -1,30 +1,31 @@
 <template>
   <div id="app">
-    <section v-if="activeUser">
-      <h2>Welcome, {{activeUser.username}}</h2>
+    <section id="sidebar" class="blue-grey darken-4">
+      <nav v-if="activeUser">
+        <h2>Welcome, {{activeUser.username}}</h2>
+      </nav>
+      <dropdown
+        id="user"
+        v-if="users"
+        :label="'Select a user'"
+        :items="users"
+        :displayProp="'username'"
+        v-model="activeUserId"
+        @input="activateUser"
+      ></dropdown>
+      <button @click="createUser" type="button">New User</button>
+      <hr>
+      <dropdown
+        v-if="activeUserId && characters && characters.length > 0"
+        id="char"
+        :label="'Select a character'"
+        :items="characters"
+        :displayProp="'name'"
+        v-model="activeCharacterId"
+        @input="activateCharacter"
+      ></dropdown>
+      <button @click="createCharacter" type="button">New Character</button>
     </section>
-    <dropdown
-      id="user"
-      v-if="users"
-      :label="'Select a user'"
-      :items="users"
-      :displayProp="'username'"
-      v-model="activeUserId"
-      @input="activateUser"
-    ></dropdown>
-    <button @click="createUser" type="button">New User</button>
-    <hr>
-    <dropdown
-      v-if="activeUserId && characters && characters.length > 0"
-      id="char"
-      :label="'Select a character'"
-      :items="characters"
-      :displayProp="'name'"
-      v-model="activeCharacterId"
-      @input="activateCharacter"
-    ></dropdown>
-    <button @click="createCharacter" type="button">New Character</button>
-    <hr>
     <section v-if="characters && activeCharacterId">
       <character-info
         :char="activeCharacter"
