@@ -1,6 +1,7 @@
 {
-  "races": {
-    "ELF": {
+  "races": [
+    {
+      "id": 1,
       "name": "Elf",
       "stats": {
         "DEX": 2
@@ -10,8 +11,9 @@
         "LANGUAGES": ["Common", "Elvish"],
         "SPEED": 30
       },
-      "subraces": {
-        "WOOD": {
+      "subraces": [
+        {
+          "id": 1,
           "name": "Wood Elf",
           "stats": {
             "WIS": 1
@@ -20,7 +22,8 @@
             "SPEED": 35
           }
         },
-        "HIGH": {
+        {
+          "id": 2,
           "name": "High Elf",
           "stats": {
             "INT": 1
@@ -28,7 +31,8 @@
           "LANGUAGES": [1],
           "SPELLS": [0]
         },
-        "MARK_OF_SHADOWS": {
+        {
+          "id": 3,
           "name": "Mark of Shadows Elf",
           "stats": {
             "CHA": 1
@@ -36,7 +40,7 @@
           "spells": ["Minor Illusion"],
           "proficiencies": ["PERFORMANCE"]
         }
-      }
+      ]
     }
-  }
+  ]
 }

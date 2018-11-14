@@ -8,6 +8,7 @@ export default {
       return response.data
     })
   },
+  getCharacterWithRace(id) {},
   createCharacter(char) {
     return axios.post(`${path}/characters`, char).then(response => {
       return response.data

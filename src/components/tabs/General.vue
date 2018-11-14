@@ -2,10 +2,14 @@
   <section>
     <section v-if="char.stats">
       <h2>Stats</h2>
-      <section v-if="char.stats.hitPoints">
-        <h3>Hit Points</h3>
-        Base: {{char.stats.hitPoints.base}}
-      </section>
+      <stat-tile v-if="char.stats.hitPoints"
+        :label="'Base Hit Points'"
+        :value="char.stats.hitPoints.base.toString()"
+      ></stat-tile>
+      <stat-tile v-if="char.stats.hitPoints"
+        :label="'Hit Points'"
+        :value="char.stats.hitPoints.base.toString()"
+      ></stat-tile>
       <section v-if="char.stats.abilityScores">
         <h3>Ability Scores</h3>
         <ability-scores
@@ -18,9 +22,11 @@
 </template>
 <script>
 import AbilityScores from './../AbilityScores.vue'
+import StatTile from './../StatTile.vue'
 export default {
   components: {
     AbilityScores,
+    StatTile,
   },
   props: {
     char: Object,

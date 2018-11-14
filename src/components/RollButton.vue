@@ -1,6 +1,7 @@
 <template>
   <section>
     <button
+      class="button is-small is-light"
       v-if="showButton"
       @click="roll(die, mod)"
     >
