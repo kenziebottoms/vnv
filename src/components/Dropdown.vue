@@ -1,5 +1,5 @@
 <template>
-  <div class="input-field white-text">
+  <div class="select is-primary">
   <select @input="e => {$emit('input', parseInt(e.target.value))}">
       <option default value="">{{label}}</option>
       <option

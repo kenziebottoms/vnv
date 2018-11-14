@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <section id="sidebar" class="blue-grey darken-4">
+    <section id="sidebar">
       <nav v-if="activeUser">
         <h2>Welcome, {{activeUser.username}}</h2>
       </nav>
       <dropdown
-        id="user"
         v-if="users"
         :label="'Select a user'"
         :items="users"
@@ -13,23 +12,37 @@
         v-model="activeUserId"
         @input="activateUser"
       ></dropdown>
-      <button @click="createUser" type="button">New User</button>
-      <hr>
+      <button @click="createUser" type="button" class="button is-light is-small">New User</button>
       <dropdown
         v-if="activeUserId && characters && characters.length > 0"
-        id="char"
         :label="'Select a character'"
         :items="characters"
         :displayProp="'name'"
         v-model="activeCharacterId"
         @input="activateCharacter"
       ></dropdown>
-      <button @click="createCharacter" type="button">New Character</button>
+      <button @click="createCharacter" type="button" class="button is-light is-small">New Character</button>
+      <hr>
+      <aside class="menu">
+        <ul class="menu-list">
+          <li
+            v-for="item in menu"
+            :key="item.slug"
+          >
+            <a @click="tab = item.slug">{{item.menuItem}}</a>
+          </li>
+        </ul>
+      </aside>
     </section>
-    <section v-if="characters && activeCharacterId">
+    <section id="main" v-if="activeCharacter">
       <character-info
+        v-if="tab=='DEFAULT'"
         :char="activeCharacter"
       ></character-info>
+      <combat-tab
+        v-if="tab=='COMBAT'"
+        :char="activeCharacter"
+      ></combat-tab>
     </section>
   </div>
 </template>
@@ -37,6 +50,7 @@
 <script>
 import CharacterInfo from './components/CharacterInfo.vue'
 import Dropdown from './components/Dropdown.vue'
+import CombatTab from './components/tabs/Combat.vue'
 import users from './api/users'
 import chars from './api/characters'
 
@@ -49,6 +63,7 @@ export default {
   name: 'app',
   components: {
     CharacterInfo,
+    CombatTab,
     Dropdown,
   },
   computed: {
@@ -83,6 +98,17 @@ export default {
       characters: [],
       activeUserId: null,
       activeCharacterId: null,
+      tab: 'DEFAULT',
+      menu: [
+        {
+          slug: 'DEFAULT',
+          menuItem: 'General',
+        },
+        {
+          slug: 'COMBAT',
+          menuItem: 'Combat',
+        },
+      ],
     }
   },
   methods: {

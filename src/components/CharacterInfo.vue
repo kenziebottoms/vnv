@@ -1,5 +1,5 @@
 <template>
-  <section v-if="char">
+  <section>
     <section v-if="char.stats">
       <h2>Stats</h2>
       <section v-if="char.stats.hitPoints">
