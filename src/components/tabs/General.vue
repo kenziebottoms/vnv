@@ -17,7 +17,7 @@
   </section>
 </template>
 <script>
-import AbilityScores from './AbilityScores.vue'
+import AbilityScores from './../AbilityScores.vue'
 export default {
   components: {
     AbilityScores,

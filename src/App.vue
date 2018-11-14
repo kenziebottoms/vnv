@@ -35,10 +35,10 @@
       </aside>
     </section>
     <section id="main" v-if="activeCharacter">
-      <character-info
+      <general-tab
         v-if="tab=='DEFAULT'"
         :char="activeCharacter"
-      ></character-info>
+      ></general-tab>
       <combat-tab
         v-if="tab=='COMBAT'"
         :char="activeCharacter"
@@ -48,8 +48,8 @@
 </template>
 
 <script>
-import CharacterInfo from './components/CharacterInfo.vue'
 import Dropdown from './components/Dropdown.vue'
+import GeneralTab from './components/tabs/General.vue'
 import CombatTab from './components/tabs/Combat.vue'
 import users from './api/users'
 import chars from './api/characters'
@@ -62,9 +62,9 @@ const ls = window.localStorage
 export default {
   name: 'app',
   components: {
-    CharacterInfo,
     CombatTab,
     Dropdown,
+    GeneralTab,
   },
   computed: {
     activeUser() {

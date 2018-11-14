@@ -15,12 +15,6 @@
 </template>
 <script>
 export default {
-  created() {
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('select')
-      var instances = M.FormSelect.init(elems, {})
-    })
-  },
   props: {
     label: String,
     items: Array,

@@ -46,6 +46,7 @@ hr {
   }
   #main {
     padding: 2rem;
+    background: $offwhite;
   }
 }
 .statGrid {
@@ -56,17 +57,21 @@ hr {
     grid-template-columns: repeat(3, 1fr);
     > div {
       display: flex;
+      background: $white;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       > div {
         padding: .5rem;
-        &:nth-child(1) {
+        &:nth-child(1), &:nth-child(3) {
           padding: 0.5rem;
           align-self: stretch;
           color: $white;
           background-color: $gray;
+        }
+        &:nth-child(3) {
+          color: rgba($grape, .8);
         }
         &:nth-child(2) {
           font-size: 2.5rem;
