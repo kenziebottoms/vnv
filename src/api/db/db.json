@@ -5,7 +5,8 @@
       "owner": 1,
       "level": 5,
       "name": "Tantis",
-      "race": "ELF.WOOD",
+      "race": 1,
+      "subrace": 1,
       "created": 1542137792002,
       "age": 150,
       "stats": {

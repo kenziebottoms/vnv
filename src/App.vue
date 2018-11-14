@@ -34,14 +34,14 @@
         </ul>
       </aside>
     </section>
-    <section id="main" v-if="activeCharacter">
+    <section id="main" v-if="characterData">
       <general-tab
         v-if="tab=='DEFAULT'"
-        :char="activeCharacter"
+        :char="characterData"
       ></general-tab>
       <combat-tab
         v-if="tab=='COMBAT'"
-        :char="activeCharacter"
+        :char="characterData"
       ></combat-tab>
     </section>
   </div>
@@ -52,10 +52,17 @@ import Dropdown from './components/Dropdown.vue'
 import GeneralTab from './components/tabs/General.vue'
 import CombatTab from './components/tabs/Combat.vue'
 import users from './api/users'
+import races from './api/races'
 import chars from './api/characters'
 
 let { getUser, createUser, getAllUsers } = users
-let { getCharactersByUser, createCharacter } = chars
+let { getRaceById } = races
+let {
+  getCharacter,
+  createCharacter,
+  getCharactersByUser,
+  getCharacterWithRace,
+} = chars
 
 const ls = window.localStorage
 
@@ -96,6 +103,7 @@ export default {
     return {
       users: [],
       characters: [],
+      characterData: null,
       activeUserId: null,
       activeCharacterId: null,
       tab: 'DEFAULT',
@@ -117,6 +125,10 @@ export default {
     },
     async getUsersCharacters(id) {
       this.characters = await getCharactersByUser(id)
+    },
+    async getCharacterData(id) {
+      this.characterData = await getCharacter(id)
+      this.characterData.race = await getRaceById(this.characterData.race)
     },
     async createUser() {
       let username = prompt('username?')
@@ -158,6 +170,7 @@ export default {
     },
     activeCharacterId(newId) {
       ls.setItem('vnvCharId', newId)
+      this.getCharacterData(newId)
     },
   },
 }
