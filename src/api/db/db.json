@@ -3,18 +3,32 @@
     {
       "id": 1,
       "owner": 1,
+      "level": 5,
       "name": "Tantis",
       "race": "ELF.WOOD",
       "created": 1542137792002,
       "age": 150,
-      "baseStats": {
-        "STR": 8,
-        "DEX": 12,
-        "CON": 15,
-        "INT": 14,
-        "WIS": 16,
-        "CHA": 11,
-        "HP": 8
+      "stats": {
+        "abilityScores": {
+          "base": {
+            "STR": 8,
+            "DEX": 12,
+            "CON": 15,
+            "INT": 14,
+            "WIS": 16,
+            "CHA": 11
+          },
+          "improvements": [
+            {
+              "level": 4,
+              "CON": 1,
+              "CHA": 1
+            }
+          ]
+        },
+        "hitPoints": {
+          "base": 8
+        }
       }
     },
     {

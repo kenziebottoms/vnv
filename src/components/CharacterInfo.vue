@@ -1,16 +1,26 @@
 <template>
   <section v-if="char">
-    <section v-if="char.baseStats">
-      <h3>Base stats</h3>
-      <stats :stats="char.baseStats"></stats>
+    <section v-if="char.stats">
+      <h2>Stats</h2>
+      <section v-if="char.stats.hitPoints">
+        <h3>Hit Points</h3>
+        Base: {{char.stats.hitPoints.base}}
+      </section>
+      <section v-if="char.stats.abilityScores">
+        <h3>Ability Scores</h3>
+        <ability-scores
+          :level="char.level"
+          :abilityScores="char.stats.abilityScores"
+        ></ability-scores>
+      </section>
     </section>
   </section>
 </template>
 <script>
-import Stats from './Stats.vue'
+import AbilityScores from './AbilityScores.vue'
 export default {
   components: {
-    Stats,
+    AbilityScores,
   },
   props: {
     char: Object,

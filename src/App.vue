@@ -24,6 +24,7 @@
       @input="activateCharacter"
     ></dropdown>
     <button @click="createCharacter" type="button">New Character</button>
+    <hr>
     <section v-if="characters && activeCharacterId">
       <character-info
         :char="activeCharacter"
