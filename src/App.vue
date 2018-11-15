@@ -64,6 +64,9 @@ let {
   getCharacterWithRace,
 } = chars
 
+import stats from './utils/stats.js'
+let { calculateAbilityScores } = stats
+
 const ls = window.localStorage
 
 export default {
@@ -129,6 +132,12 @@ export default {
     async getCharacterData(id) {
       this.characterData = await getCharacter(id)
       this.characterData.race = await getRaceById(this.characterData.race)
+      this.characterData.stats.abilityScores.calculated = await calculateAbilityScores(
+        this.characterData.stats.abilityScores.base,
+        this.characterData.stats.abilityScores.improvements.filter(
+          i => i.level <= this.characterData.level
+        )
+      )
     },
     async createUser() {
       let username = prompt('username?')

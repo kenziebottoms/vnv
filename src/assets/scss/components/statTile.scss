@@ -1,0 +1,24 @@
+@import '../colors';
+
+.statTile {
+  display: inline-block;
+  margin: 1rem;
+  > div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    > * {
+      padding: .25rem .75rem;
+    }
+    label {
+      background: $gray;
+      color: $white;
+      font-size: .85rem;
+    }
+    div {
+      background: $white;
+      font-size: 2.5rem;
+      font-weight: 100;
+    }
+  }
+}

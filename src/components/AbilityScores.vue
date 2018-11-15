@@ -1,20 +1,28 @@
 <template>
-  <section class="statGrid" id="abilityScores">
-    <div>
-      <div class="z-depth-2" v-for="(key, val) in currentAbilityScores" :key="val">
-        <div class="stat-label">
-          <span>{{val}}</span>
-          <roll-button :mod="parseInt(getModifier(key))"></roll-button>
-        </div>
-        <div class="modifier">{{getModifier(key)}}</div>
-        <div class="stat">{{key}}</div>
+  <section class="abilityScores">
+    <div class="z-depth-2" v-for="(stat, label) in currentAbilityScores" :key="label">
+      <div class="stat-label">
+        <span>{{label}}</span>
       </div>
+      <div class="modifier">
+        {{getModifier(stat)}}
+        <roll-button
+          :label="'Check'"
+          :mod="parseInt(getModifier(stat))"
+        ></roll-button>
+        <roll-button
+          :label="'Saving Throw'"
+          :mod="parseInt(getModifier(stat))"
+        ></roll-button>
+      </div>
+      <div class="stat">{{stat}}</div>
     </div>
   </section>
 </template>
 
 <script>
 import RollButton from './RollButton.vue'
+import stats from '../utils/stats'
 export default {
   name: 'AbilityScores',
   components: {
@@ -22,15 +30,10 @@ export default {
   },
   computed: {
     currentAbilityScores() {
-      let totals = Object.assign({}, this.abilityScores.base)
-      this.abilityScores.improvements
-        .filter(i => i.level <= this.level)
-        .forEach(i => {
-          for (let stat in totals) {
-            if (i[stat]) totals[stat] += parseInt(i[stat])
-          }
-        })
-      return totals
+      return stats.calculateAbilityScores(
+        this.abilityScores.base,
+        this.abilityScores.improvements
+      )
     },
   },
   methods: {

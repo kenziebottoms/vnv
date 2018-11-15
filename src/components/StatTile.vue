@@ -11,6 +11,7 @@
   </div>
 </template>
 <script>
+import '../assets/scss/components/statTile.scss'
 export default {
   props: {
     label: String,

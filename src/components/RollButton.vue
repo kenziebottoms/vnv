@@ -1,16 +1,10 @@
 <template>
-  <section>
-    <button
-      class="button is-small is-light"
-      v-if="showButton"
-      @click="roll(die, mod)"
-    >
-      {{label || 'Roll'}}
-    </button>
-    <div v-else>
-      {{result}}
-    </div>
-  </section>
+  <button
+    class="button is-small is-light"
+    @click="roll(die, mod)"
+  >
+    {{showButton ? (label || 'Roll') : result}}
+  </button>
 </template>
 <script>
 export default {
