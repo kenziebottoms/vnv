@@ -1,12 +1,16 @@
 <template>
   <button
-    class="button is-small is-light"
+    class="roll button is-small is-light"
     @click="roll(die, mod)"
   >
     {{showButton ? (label || 'Roll') : result}}
+    <span v-if="icon" :class="[...classes, 'icon']">
+      <i :class="'fas fa-'+icon"></i>
+    </span>
   </button>
 </template>
 <script>
+import '../assets/scss/components/rollButton.scss'
 export default {
   data() {
     return {
@@ -33,10 +37,12 @@ export default {
     },
   },
   props: {
+    classes: Array,
     die: {
       type: Number,
       default: 20,
     },
+    icon: String,
     label: String,
     mod: {
       type: Number,

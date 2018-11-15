@@ -2,14 +2,14 @@
   <section>
     <h2>Stats</h2>
     <stat-tile
-      v-if="char.stats.hitPoints"
+      v-if="char.hitPoints.base"
       :label="'Base Hit Points'"
-      :value="char.stats.hitPoints.base.toString()"
+      :value="char.hitPoints.base.toString()"
     ></stat-tile>
     <stat-tile
-      v-if="char.stats.hitPoints.calculated"
+      v-if="char.hitPoints.calculated"
       :label="'Hit Points'"
-      :value="char.stats.hitPoints.base.toString()"
+      :value="char.hitPoints.calculated.toString()"
     ></stat-tile>
     <stat-tile
       v-if="speed"
@@ -17,9 +17,8 @@
       :value="speed+'ft'"
     ></stat-tile>
     <ability-scores
-      v-if="char.stats.abilityScores"
-      :level="char.level"
-      :abilityScores="char.stats.abilityScores"
+      v-if="char.abilityScores"
+      :char="char"
     ></ability-scores>
   </section>
 </template>

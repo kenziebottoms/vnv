@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Elf",
-      "stats": {
+      "abilityScores": {
         "DEX": 2
       },
       "traits": {
@@ -15,7 +15,7 @@
         {
           "id": 1,
           "name": "Wood Elf",
-          "stats": {
+          "abilityScores": {
             "WIS": 1
           },
           "traits": {
@@ -25,7 +25,7 @@
         {
           "id": 2,
           "name": "High Elf",
-          "stats": {
+          "abilityScores": {
             "INT": 1
           },
           "LANGUAGES": [1],

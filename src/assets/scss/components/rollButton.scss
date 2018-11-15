@@ -1,0 +1,10 @@
+.roll.button {
+  margin: .25rem 0;
+  width: auto;
+  display: inline-block;
+  .icon {
+    &:first-child:last-child {
+      margin-left: 0;
+    }
+  }
+}

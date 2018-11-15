@@ -1,0 +1,39 @@
+{
+  "classes": [
+    {
+      "id": 1,
+      "name": "Druid",
+      "traits": {
+        "hitPointDie": 8,
+        "savingThrows": ["WIS", "INT"],
+        "skills": [
+          [
+            "Arcana",
+            "Animal Handling",
+            "Insight",
+            "Medicine",
+            "Nature",
+            "Perception",
+            "Relgion",
+            "Survival"
+          ],
+          [
+            "Arcana",
+            "Animal Handling",
+            "Insight",
+            "Medicine",
+            "Nature",
+            "Perception",
+            "Relgion",
+            "Survival"
+          ]
+        ],
+        "languages": ["Druidic"],
+        "spellcasting": {
+          "modifier": "WIS",
+          "DC bonus": 8
+        }
+      }
+    }
+  ]
+}

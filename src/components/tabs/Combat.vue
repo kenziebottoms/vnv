@@ -2,7 +2,7 @@
   <section id="combat" class="tab">
     <ability-scores
       :level="char.level"
-      :abilityScores="char.stats.abilityScores"
+      :abilityScores="char.abilityScores"
     ></ability-scores>
   </section>
 </template>

@@ -3,7 +3,10 @@ import axios from 'axios'
 const path = 'http://localhost:3000'
 
 import races from './races'
+import classes from './classes'
+
 let { getRaceById } = races
+let { getClass } = classes
 
 let getCharacter = id => {
   return axios.get(`${path}/characters/${id}`).then(response => {
@@ -23,6 +26,10 @@ export default {
         })
         .then(data => {
           charData.race = data
+          return getClass(charData.class)
+        })
+        .then(data => {
+          charData.class = data
           resolve(charData)
         })
         .catch(err => reject(err))
