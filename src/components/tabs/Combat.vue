@@ -1,8 +1,7 @@
 <template>
   <section id="combat" class="tab">
     <ability-scores
-      :level="char.level"
-      :abilityScores="char.abilityScores"
+      :char="char"
     ></ability-scores>
   </section>
 </template>

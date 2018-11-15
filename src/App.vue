@@ -29,7 +29,10 @@
             v-for="item in menu"
             :key="item.slug"
           >
-            <a @click="tab = item.slug">{{item.menuItem}}</a>
+            <a
+              :class="{'is-active': tab==item.slug}"
+              @click="tab=item.slug"
+            >{{item.menuItem}}</a>
           </li>
         </ul>
       </aside>
@@ -167,6 +170,7 @@ export default {
   watch: {
     activeUserId(newId) {
       ls.setItem('vnvUserId', newId)
+      this.characterData = null
       this.getUsersCharacters(newId)
     },
     activeCharacterId(newId) {
