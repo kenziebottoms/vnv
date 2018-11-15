@@ -58,10 +58,9 @@ import chars from './api/characters'
 let { getUser, createUser, getAllUsers } = users
 let { getRaceById } = races
 let {
-  getCharacter,
+  getCharacterWithClassAndRace,
   createCharacter,
   getCharactersByUser,
-  getCharacterWithRace,
 } = chars
 
 import stats from './utils/stats.js'
@@ -130,14 +129,7 @@ export default {
       this.characters = await getCharactersByUser(id)
     },
     async getCharacterData(id) {
-      this.characterData = await getCharacter(id)
-      this.characterData.race = await getRaceById(this.characterData.race)
-      this.characterData.stats.abilityScores.calculated = await calculateAbilityScores(
-        this.characterData.stats.abilityScores.base,
-        this.characterData.stats.abilityScores.improvements.filter(
-          i => i.level <= this.characterData.level
-        )
-      )
+      this.characterData = await getCharacterWithClassAndRace(id)
     },
     async createUser() {
       let username = prompt('username?')
