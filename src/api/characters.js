@@ -22,10 +22,12 @@ export default {
       getCharacter(id)
         .then(data => {
           charData = data
+          if (!charData.race) return null
           return getRaceById(charData.race)
         })
         .then(data => {
           charData.race = data
+          if (!charData.class) return null
           return getClass(charData.class)
         })
         .then(data => {

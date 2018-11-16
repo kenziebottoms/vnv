@@ -7,9 +7,9 @@
         "DEX": 2
       },
       "traits": {
-        "DARKVISION": 60,
-        "LANGUAGES": ["Common", "Elvish"],
-        "SPEED": 30
+        "darkvision": 60,
+        "languages": ["Common", "Elvish"],
+        "speed": 30
       },
       "subraces": [
         {
@@ -19,7 +19,7 @@
             "WIS": 1
           },
           "traits": {
-            "SPEED": 35
+            "speed": 35
           }
         },
         {
@@ -28,19 +28,34 @@
           "abilityScores": {
             "INT": 1
           },
-          "LANGUAGES": [1],
-          "SPELLS": [0]
+          "languages": [1],
+          "spells": [0]
         },
         {
           "id": 3,
           "name": "Mark of Shadows Elf",
-          "stats": {
+          "abilityScores": {
             "CHA": 1
           },
           "spells": ["Minor Illusion"],
           "proficiencies": ["PERFORMANCE"]
         }
       ]
+    },
+    {
+      "id": 2,
+      "name": "Tiefling",
+      "abilityScores": {
+        "CHA": 2,
+        "INT": 1
+      },
+      "traits": {
+        "speed": 30,
+        "languages": ["Common", "Infernal"],
+        "spells": ["Thaumaturgy"],
+        "darkvision": 60,
+        "resistance": ["fire"]
+      }
     }
   ]
 }

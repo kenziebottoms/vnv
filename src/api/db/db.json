@@ -34,9 +34,10 @@
     {
       "owner": 1,
       "name": "Nemesis",
-      "race": "TIEFLING",
+      "race": 2,
       "created": 1542137792002,
-      "id": 2
+      "id": 2,
+      "age": 30
     },
     {
       "name": "Magnus",

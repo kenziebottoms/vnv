@@ -4,6 +4,7 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   height: 100vh;
   width: 100vw;
+  background: $offwhite;
 }
 hr {
   margin: 1rem 0;
@@ -49,6 +50,5 @@ hr {
   }
   #main {
     padding: 1rem;
-    background: $offwhite;
   }
 }

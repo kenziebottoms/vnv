@@ -175,6 +175,7 @@ export default {
     },
     activeCharacterId(newId) {
       ls.setItem('vnvCharId', newId)
+      this.characterData = null
       this.getCharacterData(newId)
     },
   },
