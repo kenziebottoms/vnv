@@ -50,7 +50,7 @@
 </template>
 <script>
 import AbilityScores from './../AbilityScores.vue'
-import StatTile from './../StatTile.vue'
+import StatTile from './../elements/StatTile.vue'
 export default {
   components: {
     AbilityScores,

@@ -32,7 +32,7 @@
 <script>
 import '../assets/scss/components/abilityScores.scss'
 
-import RollButton from './RollButton.vue'
+import RollButton from './elements/RollButton.vue'
 import _ from 'lodash'
 
 import stats from '../utils/stats'

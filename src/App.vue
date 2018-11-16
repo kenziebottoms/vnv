@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import Dropdown from './components/Dropdown.vue'
+import Dropdown from './components/elements/Dropdown.vue'
 import GeneralTab from './components/tabs/General.vue'
 import CombatTab from './components/tabs/Combat.vue'
 import users from './api/users'

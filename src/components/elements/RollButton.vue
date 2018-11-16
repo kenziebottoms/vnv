@@ -10,7 +10,7 @@
   </button>
 </template>
 <script>
-import '../assets/scss/components/rollButton.scss'
+import '../../assets/scss/components/rollButton.scss'
 export default {
   data() {
     return {
