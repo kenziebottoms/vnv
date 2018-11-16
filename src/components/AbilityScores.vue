@@ -5,12 +5,7 @@
         <span>{{label}}</span>
       </div>
       <div class="modifier">
-        <div
-          class="tooltip is-tooltip-top"
-          :data-tooltip="breakdown(label)"
-        >
-          {{printModifier(modifier(stat))}}
-        </div>
+        {{printModifier(modifier(stat))}}
         <roll-button
           v-if="showRollButtons"
           :label="'Check'"
@@ -44,33 +39,11 @@ export default {
     RollButton,
   },
   computed: {
-    abilityScoreImprovements() {
-      return totalAbilityScores(
-        this.char.abilityScores.improvements.filter(
-          i => i.level <= this.char.level
-        )
-      )
-    },
-    raceBonuses() {
-      let subraceBonuses = {}
-      if (this.char.subrace) {
-        subraceBonuses = _.cloneDeep(
-          this.char.race.subraces.find(sr => sr.id == this.char.subrace)
-            .abilityScores
-        )
-      }
-      let raceBonuses = _.cloneDeep(this.char.race.abilityScores)
-      return totalAbilityScores([raceBonuses, subraceBonuses])
-    },
     proficiency() {
       return Math.floor(this.char.level / 4 + 2)
     },
     finalAbilityScores() {
-      return totalAbilityScores([
-        this.raceBonuses,
-        this.abilityScoreImprovements,
-        this.char.abilityScores.base,
-      ])
+      return totalAbilityScores(this.char)
     },
   },
   methods: {
@@ -79,10 +52,6 @@ export default {
     },
     saveProficiency(stat) {
       return _.includes(this.char.class.traits.savingThrows, stat)
-    },
-    breakdown(stat) {
-      return `Base: ${this.char.abilityScores.base[stat]}
-              Level-ups: ${this.abilityScoreImprovements[stat]}`
     },
     saveBonus(stat) {
       return this.saveProficiency(stat) ? this.proficiency : 0

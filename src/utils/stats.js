@@ -15,9 +15,26 @@ let totalAbilityScores = scores => {
   return totals
 }
 
+let calculateRaceBonuses = (race, subrace) => {
+  let subraceBonuses
+  if (subrace) {
+    subraceBonuses = _.cloneDeep(subrace.abilityScores)
+  }
+  let raceBonuses = _.cloneDeep(race.abilityScores)
+  return totalAbilityScores([raceBonuses, subraceBonuses])
+}
+
 export default {
   totalAbilityScores,
-  calculateImprovementTotals(improvements, level) {
-    return totalAbilityScores(improvements.filter(i => i.level >= level))
+  calculateRaceBonuses,
+  totalAbilityScores(char) {
+    return totalAbilityScores([
+      calculateRaceBonuses(
+        char.race,
+        char.race.subraces.find(sr => sr.id == char.subrace)
+      ),
+      ...char.abilityScores.improvements.filter(i => i.level <= char.level),
+      char.abilityScores.base,
+    ])
   },
 }

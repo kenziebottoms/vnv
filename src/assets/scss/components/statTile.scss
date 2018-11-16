@@ -7,15 +7,15 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    > * {
+    > label, > div {
       padding: .25rem .75rem;
     }
-    label {
+    > label {
       background: $gray;
       color: $white;
       font-size: .85rem;
     }
-    div {
+    > div {
       background: $white;
       font-size: 2.5rem;
       font-weight: 100;

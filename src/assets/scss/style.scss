@@ -52,3 +52,12 @@ hr {
     padding: 1rem;
   }
 }
+.green {
+  color: $bulma-green;
+}
+.red {
+  color: $bulma-red;
+}
+.has-shadow {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}

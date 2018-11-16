@@ -46,6 +46,10 @@
         v-if="tab=='COMBAT'"
         :char="characterData"
       ></combat-tab>
+      <level-up-tab
+        v-if="tab=='LEVEL_UP'"
+        :char="characterData"
+      ></level-up-tab>
     </section>
   </div>
 </template>
@@ -54,6 +58,8 @@
 import Dropdown from './components/elements/Dropdown.vue'
 import GeneralTab from './components/tabs/General.vue'
 import CombatTab from './components/tabs/Combat.vue'
+import LevelUpTab from './components/tabs/LevelUp.vue'
+
 import users from './api/users'
 import races from './api/races'
 import chars from './api/characters'
@@ -77,6 +83,7 @@ export default {
     CombatTab,
     Dropdown,
     GeneralTab,
+    LevelUpTab,
   },
   computed: {
     activeUser() {
@@ -120,6 +127,10 @@ export default {
         {
           slug: 'COMBAT',
           menuItem: 'Combat',
+        },
+        {
+          slug: 'LEVEL_UP',
+          menuItem: 'Level Up',
         },
       ],
     }
