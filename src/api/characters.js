@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const path = 'http://localhost:3000'
+const path = 'http://localhost:3000/characters'
 
 import races from './races'
 import classes from './classes'
@@ -9,7 +9,12 @@ let { getRaceById } = races
 let { getClass } = classes
 
 let getCharacter = id => {
-  return axios.get(`${path}/characters/${id}`).then(response => {
+  return axios.get(`${path}/${id}`).then(response => {
+    return response.data
+  })
+}
+let updateCharacter = char => {
+  return axios.patch(`${path}/${char.id}`, char).then(response => {
     return response.data
   })
 }
@@ -38,13 +43,21 @@ export default {
     })
   },
   createCharacter(char) {
-    return axios.post(`${path}/characters`, char).then(response => {
+    return axios.post(`${path}`, char).then(response => {
       return response.data
     })
   },
   getCharactersByUser(userId) {
-    return axios.get(`${path}/characters?owner=${userId}`).then(response => {
+    return axios.get(`${path}?owner=${userId}`).then(response => {
       return response.data
     })
+  },
+  updateCharacter,
+  updateLevel(charId, newLevel) {
+    return axios
+      .patch(`${path}/${charId}`, { level: newLevel })
+      .then(response => {
+        return response.data
+      })
   },
 }

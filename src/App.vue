@@ -39,6 +39,8 @@
     </section>
     <section id="main" v-if="characterData">
       <general-tab
+        @levelUp="changeTabs('LEVEL_UP')"
+        @levelDown="levelDown"
         v-if="tab=='DEFAULT'"
         :char="characterData"
       ></general-tab>
@@ -73,7 +75,7 @@ let {
 } = chars
 
 import stats from './utils/stats.js'
-let { calculateAbilityScores } = stats
+let { calculateAbilityScores, updateLevel } = stats
 
 const ls = window.localStorage
 
@@ -170,6 +172,14 @@ export default {
     },
     activateCharacter(id) {
       this.activeCharacterId = id
+    },
+    changeTabs(newTab) {
+      this.tab = newTab
+    },
+    levelDown() {
+      if (confirm('Sure you want to level down?')) {
+        updateLevel(this.char.id, this.char.level - 1)
+      }
     },
   },
   mounted() {

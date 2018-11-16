@@ -5,8 +5,8 @@
       v-if="char.level"
       :label="'Level'"
       :adjustable="true"
-      @increment="levelUp"
-      @decrement="levelDown"
+      @increment="$emit('levelUp')"
+      @decrement="$emit('levelDown')"
       :value="char.level.toString()"
     ></stat-tile>
     <stat-tile
@@ -71,14 +71,6 @@ export default {
     speed() {
       if (!this.char.race) return null
       return this.subrace.traits.speed || this.char.race.traits.speed
-    },
-  },
-  methods: {
-    levelUp() {
-      $emit('changeTabs', 'LEVEL_UP', this.char.level + 1)
-    },
-    levelDown() {
-      $emit('changeTabs', 'LEVEL_UP', this.char.level - 1)
     },
   },
   props: {

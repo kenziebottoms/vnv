@@ -10,6 +10,8 @@
       <adjustable-number
         v-else
         :value="parseInt(value)"
+        @increment="$emit('increment')"
+        @decrement="$emit('decrement')"
       >
       </adjustable-number>
     </div>
