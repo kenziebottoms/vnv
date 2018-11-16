@@ -2,6 +2,7 @@
   <section id="combat" class="tab">
     <ability-scores
       :char="char"
+      :show-roll-buttons="true"
     ></ability-scores>
   </section>
 </template>

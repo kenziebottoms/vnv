@@ -12,10 +12,12 @@
           {{printModifier(modifier(stat))}}
         </div>
         <roll-button
+          v-if="showRollButtons"
           :label="'Check'"
           :mod="modifier(stat)"
         ></roll-button>
         <roll-button
+          v-if="showRollButtons"
           :label="'Saving Throw'"
           :icon="saveProficiency(label) ? 'plus' : null"
           :classes="['has-text-success']"
@@ -90,6 +92,7 @@ export default {
     },
   },
   props: {
+    showRollButtons: Boolean,
     char: Object,
   },
 }

@@ -42,6 +42,7 @@
     <hr>
     <h2>Ability Scores</h2>
     <ability-scores
+      :show-roll-buttons="false"
       v-if="char.abilityScores"
       :char="char"
     ></ability-scores>
@@ -66,7 +67,7 @@ export default {
     },
     speed() {
       if (!this.char.race) return null
-      return this.subrace.traits.SPEED || this.char.race.traits.SPEED
+      return this.subrace.traits.speed || this.char.race.traits.speed
     },
   },
   props: {
