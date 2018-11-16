@@ -4,11 +4,12 @@
       "id": 1,
       "owner": 1,
       "level": 5,
-      "name": "Tantis",
+      "name": "Tantis Silmanelle",
       "class": 1,
       "race": 1,
       "subrace": 1,
       "created": 1542137792002,
+      "background": 9,
       "age": 150,
       "abilityScores": {
         "base": {

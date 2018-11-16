@@ -1,0 +1,130 @@
+{
+  "backgrounds": [
+    {
+      "id": 1,
+      "name": "Acolyte",
+      "skills": ["Insight", "Religion"],
+      "languages": 2,
+      "tools": null
+    },
+    {
+      "id": 2,
+      "name": "Charlatan",
+      "skills": ["Deception", "Sleight of Hand"],
+      "languages": null,
+      "tools": "Disguise Kit, Forgery Kit"
+    },
+    {
+      "id": 3,
+      "name": "Criminal",
+      "skills": ["Deception", "Stealth"],
+      "languages": null,
+      "tools": "Gaming set x1, Thieves' tools"
+    },
+    {
+      "id": 4,
+      "name": "Entertainer",
+      "skills": ["Acrobatics", "Performance"],
+      "languages": null,
+      "tools": "Disguise kit, Musical instrument x1"
+    },
+    {
+      "id": 5,
+      "name": "Folk Hero",
+      "skills": ["Animal handling", "Survival"],
+      "languages": null,
+      "tools": "Artisan's tools x1, Vehicles (land)"
+    },
+    {
+      "id": 6,
+      "name": "Gladiator",
+      "skills": ["Acrobatics", "Performance"],
+      "languages": null,
+      "tools": "Disguise kit, Unusual weapon x1"
+    },
+    {
+      "id": 7,
+      "name": "Guild Artisan",
+      "skills": ["Insight", "Persuasion"],
+      "languages": 1,
+      "tools": "Artisan's tools x1"
+    },
+    {
+      "id": 8,
+      "name": "Guild Merchant",
+      "skills": ["Insight", "Persuasion"],
+      "languages": 1,
+      "tools": "Navigator's tools"
+    },
+    {
+      "id": 9,
+      "name": "Hermit",
+      "skills": ["Medicine", "Religion"],
+      "languages": 1,
+      "tools": "Herbalism kit"
+    },
+    {
+      "id": 10,
+      "name": "Knight",
+      "skills": ["History", "Persuasion"],
+      "languages": 1,
+      "tools": "Gaming set x1"
+    },
+    {
+      "id": 11,
+      "name": "Noble",
+      "skills": ["History", "Persuasion"],
+      "languages": 1,
+      "tools": "Gaming set x1"
+    },
+    {
+      "id": 12,
+      "name": "Outlander",
+      "skills": ["Athletics", "Survival"],
+      "languages": 1,
+      "tools": "Musical instrument x1"
+    },
+    {
+      "id": 13,
+      "name": "Pirate",
+      "skills": ["Athletics", "Perception"],
+      "languages": null,
+      "tools": "Navigator's tools, Vehicles (water)"
+    },
+    {
+      "id": 14,
+      "name": "Sage",
+      "skills": ["Arcana", "History"],
+      "languages": 2,
+      "tools": null
+    },
+    {
+      "id": 15,
+      "name": "Sailor",
+      "skills": ["Athletics", "Perception"],
+      "languages": null,
+      "tools": "Navigator's tools, Vehicles (water)"
+    },
+    {
+      "id": 16,
+      "name": "Soldier",
+      "skills": ["Athletics", "Intimidation"],
+      "languages": null,
+      "tools": "Gaming set x1, Vehicles (land)"
+    },
+    {
+      "id": 17,
+      "name": "Spy",
+      "skills": ["Deception", "Stealth"],
+      "languages": null,
+      "tools": "Gaming set x1, Thieves' tools"
+    },
+    {
+      "id": 18,
+      "name": "Urchin",
+      "skills": ["Sleight of Hand", "Stealth"],
+      "languages": null,
+      "tools": "Disguise kit, Thieves' tools"
+    }
+  ]
+}
