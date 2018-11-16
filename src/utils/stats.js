@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-let totalAbilityScores = scores => {
+let addAbilityScores = scores => {
   let totals = {
     STR: 0,
     DEX: 0,
@@ -21,20 +21,26 @@ let calculateRaceBonuses = (race, subrace) => {
     subraceBonuses = _.cloneDeep(subrace.abilityScores)
   }
   let raceBonuses = _.cloneDeep(race.abilityScores)
-  return totalAbilityScores([raceBonuses, subraceBonuses])
+  return addAbilityScores([raceBonuses, subraceBonuses])
+}
+
+let totalAbilityScores = char => {
+  return addAbilityScores([
+    calculateRaceBonuses(
+      char.race,
+      char.race.subraces.find(sr => sr.id == char.subrace)
+    ),
+    ...char.abilityScores.improvements.filter(i => i.level <= char.level),
+    char.abilityScores.base,
+  ])
 }
 
 export default {
   totalAbilityScores,
   calculateRaceBonuses,
-  totalAbilityScores(char) {
-    return totalAbilityScores([
-      calculateRaceBonuses(
-        char.race,
-        char.race.subraces.find(sr => sr.id == char.subrace)
-      ),
-      ...char.abilityScores.improvements.filter(i => i.level <= char.level),
-      char.abilityScores.base,
-    ])
+  totalAbilityScores,
+  getHitPoints(level, hitDice, CON) {
+    let hpInterval = Math.floor(hitDice / 2) + 1 + CON
+    return hitDice + (level - 1) * hpInterval
   },
 }

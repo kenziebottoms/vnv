@@ -6,11 +6,9 @@
       "abilityScores": {
         "DEX": 2
       },
-      "traits": {
-        "darkvision": 60,
-        "languages": ["Common", "Elvish"],
-        "speed": 30
-      },
+      "darkvision": 60,
+      "languages": ["Common", "Elvish"],
+      "speed": 30,
       "subraces": [
         {
           "id": 1,
@@ -18,9 +16,7 @@
           "abilityScores": {
             "WIS": 1
           },
-          "traits": {
-            "speed": 35
-          }
+          "speed": 35
         },
         {
           "id": 2,
@@ -49,13 +45,11 @@
         "CHA": 2,
         "INT": 1
       },
-      "traits": {
-        "speed": 30,
-        "languages": ["Common", "Infernal"],
-        "spells": ["Thaumaturgy"],
-        "darkvision": 60,
-        "resistance": ["fire"]
-      }
+      "speed": 30,
+      "languages": ["Common", "Infernal"],
+      "spells": ["Thaumaturgy"],
+      "darkvision": 60,
+      "resistance": ["fire"]
     }
   ]
 }

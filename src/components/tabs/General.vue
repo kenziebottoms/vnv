@@ -70,7 +70,7 @@ export default {
     },
     speed() {
       if (!this.char.race) return null
-      return this.subrace.traits.speed || this.char.race.traits.speed
+      return this.subrace.speed || this.char.race.speed
     },
   },
   props: {

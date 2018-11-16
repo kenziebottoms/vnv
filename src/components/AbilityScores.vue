@@ -51,7 +51,7 @@ export default {
       return (mod >= 0 ? '+' : '') + mod
     },
     saveProficiency(stat) {
-      return _.includes(this.char.class.traits.savingThrows, stat)
+      return _.includes(this.char.class.savingThrows, stat)
     },
     saveBonus(stat) {
       return this.saveProficiency(stat) ? this.proficiency : 0
