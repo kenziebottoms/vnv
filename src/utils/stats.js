@@ -35,12 +35,17 @@ let totalAbilityScores = char => {
   ])
 }
 
+let getModifier = stat => {
+  return Math.floor((stat - 10) / 2)
+}
+
 export default {
   totalAbilityScores,
   calculateRaceBonuses,
   totalAbilityScores,
-  getHitPoints(level, hitDice, CON) {
-    let hpInterval = Math.floor(hitDice / 2) + 1 + CON
-    return hitDice + (level - 1) * hpInterval
+  getModifier,
+  getHitPoints(level, hitDice, con) {
+    let avgHitDiceRoll = Math.floor(hitDice/2) + 1
+    return hitDice + (level - 1) * (avgHitDiceRoll + getModifier(con))
   },
 }

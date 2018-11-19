@@ -1,6 +1,16 @@
 <template>
   <section id="combat" class="tab">
-    {{hp}}
+    <stat-tile
+      :value="hp"
+      :label="'Current HP'"
+      :adjustable="true"
+    >
+    </stat-tile>
+    <stat-tile
+      :value="hp"
+      :label="'Max Hit Points'"
+    >
+    </stat-tile>
     <ability-scores
       :char="char"
       :show-roll-buttons="true"
@@ -12,18 +22,18 @@ import stats from '../../utils/stats'
 let { getHitPoints, totalAbilityScores } = stats
 
 import AbilityScores from './../AbilityScores.vue'
+import StatTile from './../elements/StatTile.vue'
 export default {
   components: {
     AbilityScores,
+    StatTile
   },
   computed: {
     hp() {
-      console.log(this.char.level)
-      console.log(this.char.class.hitDice)
       return getHitPoints(
         this.char.level,
         this.char.class.hitDice,
-        Math.floor((totalAbilityScores(this.char).CON - 10) / 2)
+        totalAbilityScores(this.char).CON
       )
     },
   },

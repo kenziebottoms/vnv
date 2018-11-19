@@ -5,18 +5,18 @@
         <span>{{label}}</span>
       </div>
       <div class="modifier">
-        {{printModifier(modifier(stat))}}
+        {{printModifier(getModifier(stat))}}
         <roll-button
           v-if="showRollButtons"
           :label="'Check'"
-          :mod="modifier(stat)"
+          :mod="getModifier(stat)"
         ></roll-button>
         <roll-button
           v-if="showRollButtons"
           :label="'Saving Throw'"
           :icon="saveProficiency(label) ? 'plus' : null"
           :classes="['has-text-success']"
-          :mod="modifier(stat)+saveBonus(label)"
+          :mod="getModifier(stat)+saveBonus(label)"
         ></roll-button>
       </div>
       <div class="stat">{{stat}}</div>
@@ -31,7 +31,7 @@ import RollButton from './elements/RollButton.vue'
 import _ from 'lodash'
 
 import stats from '../utils/stats'
-let { totalAbilityScores } = stats
+let { totalAbilityScores, getModifier } = stats
 
 export default {
   name: 'AbilityScores',
@@ -56,9 +56,7 @@ export default {
     saveBonus(stat) {
       return this.saveProficiency(stat) ? this.proficiency : 0
     },
-    modifier(stat) {
-      return Math.floor((stat - 10) / 2)
-    },
+    getModifier
   },
   props: {
     showRollButtons: Boolean,
