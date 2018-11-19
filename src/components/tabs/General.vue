@@ -7,40 +7,41 @@
       :adjustable="true"
       @increment="$emit('levelUp')"
       @decrement="$emit('levelDown')"
-      :value="char.level.toString()"
+      :value="char.level"
     ></stat-tile>
     <stat-tile
       v-if="char.race"
       :label="'Race'"
-      :value="subrace.name || char.race.name"
+      :suffix="subrace.name || char.race.name"
     ></stat-tile>
     <stat-tile
       v-if="char.class"
       :label="'Class'"
-      :value="char.class.name"
+      :suffix="char.class.name"
     ></stat-tile>
     <hr>
     <stat-tile
       v-if="char.age"
       :label="'Age'"
-      :value="char.age.toString()"
+      :value="char.age"
     ></stat-tile>
     <hr>
     <h2>Stats</h2>
     <stat-tile
       v-if="char.hitPoints && char.hitPoints.base"
       :label="'Base Hit Points'"
-      :value="char.hitPoints.base.toString()"
+      :value="char.hitPoints.base"
     ></stat-tile>
     <stat-tile
       v-if="char.hitPoints && char.hitPoints.calculated"
       :label="'Hit Points'"
-      :value="char.hitPoints.calculated.toString()"
+      :value="char.hitPoints.calculated"
     ></stat-tile>
     <stat-tile
       v-if="speed"
       :label="'Walking Speed'"
-      :value="speed+'ft'"
+      :value="speed"
+      :suffix="'ft'"
     ></stat-tile>
     <hr>
     <h2>Ability Scores</h2>

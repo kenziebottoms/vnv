@@ -1,6 +1,6 @@
 <template>
   <div class="adjustable-number">
-    {{value}}
+    {{value}}{{suffix}}
     <div class="icons">
       <span
         class="fa-stack"
@@ -24,6 +24,7 @@ import '../../assets/scss/components/adjustableNumber.scss'
 export default {
   props: {
     value: Number,
+    suffix: String,
   },
 }
 </script>

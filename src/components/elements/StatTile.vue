@@ -5,11 +5,12 @@
         {{label}}
       </label>
       <div v-if="!adjustable">
-        {{value}}
+        {{value}}{{suffix}}
       </div>
       <adjustable-number
         v-else
-        :value="parseInt(value)"
+        :value="value"
+        :suffix="suffix"
         @increment="$emit('increment')"
         @decrement="$emit('decrement')"
       >
@@ -26,7 +27,8 @@ export default {
   },
   props: {
     label: String,
-    value: String,
+    value: Number,
+    suffix: String,
     adjustable: Boolean,
   },
 }
