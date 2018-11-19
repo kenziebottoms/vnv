@@ -44,6 +44,10 @@
         v-if="tab=='DEFAULT'"
         :char="characterData"
       ></general-tab>
+      <personal-tab
+        v-if="tab=='PERSONAL'"
+        :char="characterData"
+      ></personal-tab>
       <combat-tab
         @setDamage="setDamage"
         v-if="tab=='COMBAT'"
@@ -62,6 +66,7 @@ import Dropdown from './components/elements/Dropdown.vue'
 import GeneralTab from './components/tabs/General.vue'
 import CombatTab from './components/tabs/Combat.vue'
 import LevelUpTab from './components/tabs/LevelUp.vue'
+import PersonalTab from './components/tabs/Personal.vue'
 
 import users from './api/users'
 import races from './api/races'
@@ -85,8 +90,9 @@ const ls = window.localStorage
 export default {
   name: 'app',
   components: {
-    CombatTab,
     Dropdown,
+    CombatTab,
+    PersonalTab,
     GeneralTab,
     LevelUpTab,
   },
@@ -132,6 +138,10 @@ export default {
         {
           slug: 'COMBAT',
           menuItem: 'Combat',
+        },
+        {
+          slug: 'PERSONAL',
+          menuItem: 'Personal',
         },
         {
           slug: 'LEVEL_UP',

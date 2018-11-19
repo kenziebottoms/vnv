@@ -5,7 +5,7 @@
       v-for="(stat, index) in finalAbilityScores"
       v-on:click.native="select(index)"
       :key="index"
-      :value="stat.toString()"
+      :value="stat"
       :label="index"
       :class="{'has-shadow': isSelected(index)}"
     ></stat-tile>

@@ -9,24 +9,6 @@
       @decrement="$emit('levelDown')"
       :value="char.level"
     ></stat-tile>
-    <stat-tile
-      v-if="char.race"
-      :label="'Race'"
-      :suffix="subrace.name || char.race.name"
-    ></stat-tile>
-    <stat-tile
-      v-if="char.class"
-      :label="'Class'"
-      :suffix="char.class.name"
-    ></stat-tile>
-    <hr>
-    <stat-tile
-      v-if="char.age"
-      :label="'Age'"
-      :value="char.age"
-    ></stat-tile>
-    <hr>
-    <h2>Stats</h2>
     <hp-tile
       v-if="currentHp && hp"
       :value="currentHp"
