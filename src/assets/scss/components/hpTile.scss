@@ -1,0 +1,18 @@
+@import '../colors';
+
+.hpTile {
+  .meter {
+    height: .75rem;
+    width: 100%;
+    background: $gray;
+    padding: 0;
+    .health {
+      margin: 0;
+      height: 100%;
+      background: $bulma-green;
+      &.red {
+        background: $bulma-red;
+      }
+    }
+  }
+}
