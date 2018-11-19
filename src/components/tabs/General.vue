@@ -27,6 +27,7 @@
       v-if="char.abilityScores"
       :char="char"
     ></ability-scores>
+    <actions></actions>
   </section>
 </template>
 <script>
@@ -35,8 +36,10 @@ let { getHitPoints, totalAbilityScores } = stats
 import AbilityScores from './../AbilityScores.vue'
 import StatTile from './../elements/StatTile.vue'
 import HpTile from './../elements/HpTile.vue'
+import Actions from '../Actions.vue'
 export default {
   components: {
+    Actions,
     AbilityScores,
     HpTile,
     StatTile,

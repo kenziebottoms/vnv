@@ -6,8 +6,7 @@
       :adjustable="true"
       @increment="$emit('setDamage', char.damage-1)"
       @decrement="$emit('setDamage', char.damage+1)"
-    >
-    </hp-tile>
+    ></hp-tile>
     <ability-scores
       :char="char"
       :show-roll-buttons="true"

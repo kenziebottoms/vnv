@@ -1,0 +1,13 @@
+@import '../colors';
+
+.icon-button {
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  display: block;
+  height: auto !important;
+  color: $grape !important;
+  i.faded {
+    color: $gray !important;
+  }
+}
