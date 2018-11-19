@@ -45,6 +45,7 @@
         :char="characterData"
       ></general-tab>
       <combat-tab
+        @setDamage="setDamage"
         v-if="tab=='COMBAT'"
         :char="characterData"
       ></combat-tab>
@@ -73,6 +74,7 @@ let {
   createCharacter,
   getCharactersByUser,
   updateLevel,
+  updateDamage,
 } = chars
 
 import stats from './utils/stats.js'
@@ -184,6 +186,10 @@ export default {
       )
       this.characterData.level = updatedChar.level
       this.tab = 'LEVEL_UP'
+    },
+    async setDamage(pts) {
+      let updatedChar = await updateDamage(this.characterData.id, pts)
+      this.characterData.damage = updatedChar.damage
     },
     activateUser(id) {
       this.activeUserId = id

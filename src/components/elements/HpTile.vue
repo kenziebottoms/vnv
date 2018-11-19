@@ -2,7 +2,11 @@
   <div class="statTile hpTile">
     <div>
       <label>Hit Points</label>
+      <div v-if="!adjustable">
+        {{value}}/{{max}}
+      </div>
       <adjustable-number
+        v-else
         :value="value"
         :suffix="'/'+max.toString()"
         @increment="$emit('increment')"
@@ -25,6 +29,7 @@ export default {
   },
   props: {
     value: Number,
+    adjustable: Boolean,
     max: Number,
   },
 }

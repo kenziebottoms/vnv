@@ -27,16 +27,11 @@
     ></stat-tile>
     <hr>
     <h2>Stats</h2>
-    <stat-tile
-      v-if="char.hitPoints && char.hitPoints.base"
-      :label="'Base Hit Points'"
-      :value="char.hitPoints.base"
-    ></stat-tile>
-    <stat-tile
-      v-if="char.hitPoints && char.hitPoints.calculated"
-      :label="'Hit Points'"
-      :value="char.hitPoints.calculated"
-    ></stat-tile>
+    <hp-tile
+      v-if="currentHp && hp"
+      :value="currentHp"
+      :max="hp"
+    ></hp-tile>
     <stat-tile
       v-if="speed"
       :label="'Walking Speed'"
@@ -53,14 +48,28 @@
   </section>
 </template>
 <script>
+import stats from '../../utils/stats'
+let { getHitPoints, totalAbilityScores } = stats
 import AbilityScores from './../AbilityScores.vue'
 import StatTile from './../elements/StatTile.vue'
+import HpTile from './../elements/HpTile.vue'
 export default {
   components: {
     AbilityScores,
+    HpTile,
     StatTile,
   },
   computed: {
+    hp() {
+      return getHitPoints(
+        this.char.level,
+        this.char.hitDice,
+        totalAbilityScores(this.char).CON
+      )
+    },
+    currentHp() {
+      return this.hp - this.char.damage
+    },
     subrace() {
       if (!this.char || !this.char.race) return null
       if (this.char.subrace) {

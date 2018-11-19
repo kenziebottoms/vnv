@@ -60,4 +60,11 @@ export default {
         return response.data
       })
   },
+  updateDamage(charId, points) {
+    return axios
+      .patch(`${path}/${charId}`, { damage: points })
+      .then(response => {
+        return response.data
+      })
+  },
 }

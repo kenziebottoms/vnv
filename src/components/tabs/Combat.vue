@@ -1,8 +1,11 @@
 <template>
-  <section id="combat" class="tab">
+  <section v-if="char" id="combat" class="tab">
     <hp-tile
       :value="currentHp"
       :max="hp"
+      :adjustable="true"
+      @increment="$emit('setDamage', char.damage-1)"
+      @decrement="$emit('setDamage', char.damage+1)"
     >
     </hp-tile>
     <ability-scores
@@ -26,12 +29,12 @@ export default {
     hp() {
       return getHitPoints(
         this.char.level,
-        this.char.hitPoints.hitDice,
+        this.char.hitDice,
         totalAbilityScores(this.char).CON
       )
     },
     currentHp() {
-      return this.hp - this.char.hitPoints.damage
+      return this.hp - this.char.damage
     },
   },
   props: {
