@@ -44,6 +44,7 @@
         @levelDown="levelDown"
         v-if="tab=='DEFAULT'"
         :char="characterData"
+        @selectTab="selectTab"
       ></general-tab>
       <personal-tab
         v-if="tab=='PERSONAL'"
@@ -198,7 +199,7 @@ export default {
         this.characterData.level + 1
       )
       this.characterData.level = updatedChar.level
-      this.tab = 'LEVEL_UP'
+      this.selectTab('LEVEL_UP')
     },
     async setDamage(pts) {
       let updatedChar = await updateDamage(this.characterData.id, pts)
@@ -209,6 +210,10 @@ export default {
     },
     activateCharacter(id) {
       this.activeCharacterId = id
+    },
+    selectTab(tab) {
+      console.log(tab)
+      this.tab = tab
     },
   },
   mounted() {

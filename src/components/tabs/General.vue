@@ -13,6 +13,7 @@
       v-if="currentHp && hp"
       :value="currentHp"
       :max="hp"
+      v-on:click.native="$emit('selectTab', 'COMBAT')"
     ></hp-tile>
     <stat-tile
       v-if="speed"
