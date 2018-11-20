@@ -27,7 +27,6 @@
       v-if="char.abilityScores"
       :char="char"
     ></ability-scores>
-    <actions></actions>
   </section>
 </template>
 <script>

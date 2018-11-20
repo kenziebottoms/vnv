@@ -37,6 +37,7 @@
         </ul>
       </aside>
     </section>
+    <actions id="actions"></actions>
     <section id="main" v-if="characterData">
       <general-tab
         @levelUp="levelUp"
@@ -67,6 +68,7 @@ import GeneralTab from './components/tabs/General.vue'
 import CombatTab from './components/tabs/Combat.vue'
 import LevelUpTab from './components/tabs/LevelUp.vue'
 import PersonalTab from './components/tabs/Personal.vue'
+import Actions from './components/Actions.vue'
 
 import users from './api/users'
 import races from './api/races'
@@ -90,6 +92,7 @@ const ls = window.localStorage
 export default {
   name: 'app',
   components: {
+    Actions,
     Dropdown,
     CombatTab,
     PersonalTab,
