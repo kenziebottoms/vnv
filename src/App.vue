@@ -37,7 +37,10 @@
         </ul>
       </aside>
     </section>
-    <actions id="actions"></actions>
+    <actions
+      id="actions"
+      :char="characterData"
+    ></actions>
     <section id="main" v-if="characterData">
       <general-tab
         @levelUp="levelUp"

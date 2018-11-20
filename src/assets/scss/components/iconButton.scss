@@ -1,14 +1,12 @@
 @import '../colors';
 
-.icon-button {
+.icon-button.button {
   background: $white;
-  display: flex;
   flex-direction: column;
-  display: block;
   height: auto !important;
   color: $grape !important;
   margin-right: .5rem;
-  i.faded {
-    color: $gray !important;
+  i {
+    margin: .5rem 0 .4rem 0;
   }
 }
