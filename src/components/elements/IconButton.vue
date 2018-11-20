@@ -9,16 +9,12 @@ import '../../assets/scss/components/iconButton.scss'
 export default {
   computed: {
     iconClass() {
-      return `fas fa-2x fa-${this.slug} ${this.faded ? 'faded' : ''}`
+      return `fas fa-2x fa-${this.slug}`
     },
   },
   props: {
     slug: String,
     label: String,
-    faded: {
-      type: Boolean,
-      default: false,
-    },
   },
 }
 </script>

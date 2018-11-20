@@ -1,12 +1,11 @@
 <template>
   <section>
     <icon-button
-      :slug="'bed'"
-      :faded="true"
+      :slug="'battery-half'"
       :label="'Short Rest'"
     ></icon-button>
     <icon-button
-      :slug="'bed'"
+      :slug="'battery-full'"
       :label="'Long Rest'"
     ></icon-button>
   </section>

@@ -1,6 +1,10 @@
 <template>
   <section v-if="char">
     <stat-tile
+      :label="'Name'"
+      :suffix="char.fullName || char.name"
+    ></stat-tile>
+    <stat-tile
       v-if="char.race"
       :label="'Race'"
       :suffix="subrace.name || char.race.name"
