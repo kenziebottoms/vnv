@@ -1,66 +1,71 @@
 <template>
-  <section id="proficiencies">
-    <stat-tile
-      :label="'Proficiency Bonus'"
-      :suffix="printModifier(proficiencyBonus)"
-    >
-    </stat-tile>
+  <section id="proficiencies" class="tab">
+    <section>
+      <stat-tile
+        :label="'Proficiency Bonus'"
+        :suffix="printModifier(proficiencyBonus)"
+      >
+      </stat-tile>
+    </section>
     <h3>Skills</h3>
-    <section v-if="char.class.proficiencies && char.skills">
-      <h4>From {{char.class.name}} Class</h4>
+    <h4 v-if="char.class.proficiencies">From {{char.class.name}} Class</h4>
+    <section v-if="char.class.proficiencies">
       <ul>
         <li
-          v-if="Array.isArray(options) && options.length > 1"
-          :key="index"
           v-for="(options, index) in char.class.proficiencies.skills"
+          :key="index"
+          v-if="options"
         >
           <dropdown
+            v-if="Array.isArray(options) && options.length > 1"
             :id="'classSkillProficiency-'+index"
             :label="'Choose a skill proficiency'"
-            v-model="char.skills.classProficiencies[index]"
+            v-model="char.proficiencies.skills.classBonus[index]"
             :items="options"
           ></dropdown>
+          <span v-else>{{options}}</span>
         </li>
-        <li v-else-if="options && !Array.isArray(options)">{{options}}</li>
       </ul>
     </section>
-    <section v-if="char.race.proficiencies">
-      <h4>From {{char.race.name}} Race</h4>
-      <ul v-if="char.race.proficiencies">
+    <h4 v-if="char.race.proficiencies">From {{char.race.name}} Race</h4>
+    <section v-if="char.race.proficiencies && char.proficiencies.skills.raceBonus">
+      <ul>
         <li
-          v-if="Array.isArray(options) && options.length > 1"
-          :key="index"
           v-for="(options, index) in char.race.proficiencies.skills"
+          :key="index"
+          v-if="options"
         >
           <dropdown
+            v-if="Array.isArray(options) && options.length > 0"
             :id="'raceSkillProficiency-'+index"
             :label="'Choose a skill proficiency'"
-            v-model="char.skills.raceProficiencies[index]"
+            v-model="char.proficiencies.raceBonus[index]"
             :items="options"
           ></dropdown>
+          <span v-else>{{options}}</span>
         </li>
-        <li v-else-if="options && !Array.isArray(options)">{{options}}</li>
       </ul>
     </section>
-    <section v-if="char.subrace.proficiencies">
-      <h4>From {{subrace.name}} Subrace</h4>
-      <ul v-if="subrace.proficiencies">
+    <h4 v-if="subrace.proficiencies">From {{subrace.name}} Subrace</h4>
+    <section v-if="subrace.proficiencies">
+      <ul>
         <li
-          v-if="Array.isArray(options) && options.length > 1"
-          :key="index"
           v-for="(options, index) in subrace.proficiencies.skills"
+          :key="index"
+          v-if="options"
         >
           <dropdown
+            v-if="Array.isArray(options) && options.length > 0"
             :id="'subraceSkillProficiency-'+index"
             :label="'Choose a skill proficiency'"
-            v-model="char.skills.subraceProficiencies[index]"
+            v-model="char.proficiencies.skills.subraceBonus[index]"
             :items="options"
           ></dropdown>
+          <span v-else>{{options}}</span>
         </li>
-        <li v-else-if="options && !Array.isArray(options)">{{options}}</li>
       </ul>
     </section>
-    <button v-on:click="save">Save</button>
+    <button class="button" v-on:click="save">Save</button>
   </section>
 </template>
 <script>

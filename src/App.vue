@@ -64,6 +64,10 @@
         v-if="tab=='LEVEL_UP'"
         :char="characterData"
       ></level-up-tab>
+      <inventory-tab
+        v-if="tab=='INVENTORY'"
+        :char="characterData"
+      ></inventory-tab>
       <proficiencies-tab
         v-if="tab=='PROFICIENCIES'"
         :char="characterData"
@@ -80,6 +84,7 @@ import CombatTab from './components/tabs/Combat.vue'
 import LevelUpTab from './components/tabs/LevelUp.vue'
 import PersonalTab from './components/tabs/Personal.vue'
 import ProficienciesTab from './components/tabs/Proficiencies.vue'
+import InventoryTab from './components/tabs/Inventory.vue'
 
 import Dropdown from './components/elements/Dropdown.vue'
 import Actions from './components/Actions.vue'
@@ -112,6 +117,7 @@ export default {
     PersonalTab,
     GeneralTab,
     ProficienciesTab,
+    InventoryTab,
     LevelUpTab,
   },
   computed: {
@@ -175,6 +181,10 @@ export default {
         {
           slug: 'LEVEL_UP',
           menuItem: 'Level Up',
+        },
+        {
+          slug: 'INVENTORY',
+          menuItem: 'Inventory',
         },
         {
           slug: 'PROFICIENCIES',

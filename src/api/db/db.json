@@ -29,18 +29,30 @@
           }
         ]
       },
-      "skills": {
-        "classProficiencies": ["Animal Handling", "Nature"],
-        "raceProficiencies": ["Perception"],
-        "subRaceProficiencies": []
-      },
-      "equipped": {
-        "armor": {
-          "name": "Leather Armor",
-          "AC": 11,
-          "Description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials."
+      "proficiencies": {
+        "skills": {
+          "classBonus": ["Animal Handling", "Nature"],
+          "raceBonus": ["Perception"],
+          "subraceBonus": []
         }
       },
+      "armor": [
+        {
+          "name": "Leather Armor",
+          "AC": 11,
+          "description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
+          "equipped": true
+        }
+      ],
+      "weapons": [
+        {
+          "name": "Quarterstaff",
+          "damage": "1d6+1",
+          "range": 5,
+          "damageType": "Bludgeoning",
+          "type": "Melee"
+        }
+      ],
       "hitDice": 8,
       "damage": 13
     },

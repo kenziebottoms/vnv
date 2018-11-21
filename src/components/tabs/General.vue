@@ -1,6 +1,5 @@
 <template>
   <section v-if="char" class="tab" id="general">
-    <h1>{{char.name}}</h1>
     <section>
       <stat-tile
         v-if="char.level"

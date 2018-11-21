@@ -5,7 +5,6 @@
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
-  margin: .5rem;
   button {
     margin: 0;
   }
@@ -17,7 +16,6 @@
     align-items: center;
     text-align: center;
     > div {
-      padding: .5rem;
       &.stat-label, &.stat {
         padding: 0.5rem;
         align-self: stretch;
@@ -29,7 +27,7 @@
       }
       &.modifier {
         font-size: 2.5rem;
-        padding: 1rem;
+        padding: .25rem .75rem;
         font-weight: 100;
         display: flex;
         flex-direction: column;

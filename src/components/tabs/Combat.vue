@@ -9,9 +9,8 @@
         @decrement="$emit('setDamage', char.damage+1)"
       ></hp-tile>
       <stat-tile
-        v-if="char.equipped.armor"
         :label="'Armor Class'"
-        :value="char.equipped.armor.AC + getModifier(totalAbilityScores.DEX)"
+        :value="armor.AC + getModifier(totalAbilityScores.DEX)"
       >
       </stat-tile>
     </section>
@@ -27,6 +26,8 @@
 <script>
 import stats from '../../utils/stats'
 let { getHitPoints, totalAbilityScores, getModifier } = stats
+
+import _ from 'lodash'
 
 import AbilityScores from './../AbilityScores.vue'
 import HpTile from './../elements/HpTile.vue'
@@ -50,6 +51,15 @@ export default {
     },
     currentHp() {
       return this.hp - this.char.damage
+    },
+    armor() {
+      let noArmor = { name: 'None', AC: 10 }
+      if (!this.char.armor) return noArmor
+      if (Array.isArray(this.char.armor)) {
+        if (this.char.armor.length == 0) return noArmor
+        if (this.char.armor.length == 1) return this.char.armor[0]
+        return _.find(this.char.armor, 'equipped')
+      }
     },
   },
   props: {
