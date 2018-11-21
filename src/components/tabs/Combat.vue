@@ -1,22 +1,27 @@
 <template>
   <section v-if="char" id="combat" class="tab">
-    <hp-tile
-      :value="currentHp"
-      :max="hp"
-      :adjustable="true"
-      @increment="$emit('setDamage', char.damage-1)"
-      @decrement="$emit('setDamage', char.damage+1)"
-    ></hp-tile>
-    <stat-tile
-      v-if="char.equipped.armor"
-      :label="'Armor Class'"
-      :value="char.equipped.armor.AC + getModifier(totalAbilityScores.DEX)"
-    >
-    </stat-tile>
-    <ability-scores
-      :char="char"
-      :show-roll-buttons="true"
-    ></ability-scores>
+    <section>
+      <hp-tile
+        :value="currentHp"
+        :max="hp"
+        :adjustable="true"
+        @increment="$emit('setDamage', char.damage-1)"
+        @decrement="$emit('setDamage', char.damage+1)"
+      ></hp-tile>
+      <stat-tile
+        v-if="char.equipped.armor"
+        :label="'Armor Class'"
+        :value="char.equipped.armor.AC + getModifier(totalAbilityScores.DEX)"
+      >
+      </stat-tile>
+    </section>
+    <hr/>
+    <section>
+      <ability-scores
+        :char="char"
+        :show-roll-buttons="true"
+      ></ability-scores>
+    </section>
   </section>
 </template>
 <script>

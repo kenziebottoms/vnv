@@ -1,8 +1,7 @@
 @import '../colors';
 
 .statTile {
-  display: inline-block;
-  margin: 1rem;
+  align-self: flex-start;
   > div {
     display: flex;
     flex-direction: column;

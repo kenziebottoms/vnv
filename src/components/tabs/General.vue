@@ -1,33 +1,37 @@
 <template>
-  <section v-if="char">
+  <section v-if="char" class="tab" id="general">
     <h1>{{char.name}}</h1>
-    <stat-tile
-      v-if="char.level"
-      :label="'Level'"
-      :adjustable="true"
-      @increment="$emit('levelUp')"
-      @decrement="$emit('levelDown')"
-      :value="char.level"
-    ></stat-tile>
-    <hp-tile
-      v-if="currentHp && hp"
-      :value="currentHp"
-      :max="hp"
-      v-on:click.native="$emit('selectTab', 'COMBAT')"
-    ></hp-tile>
-    <stat-tile
-      v-if="speed"
-      :label="'Walking Speed'"
-      :value="speed"
-      :suffix="'ft'"
-    ></stat-tile>
-    <hr>
-    <h2>Ability Scores</h2>
-    <ability-scores
-      :show-roll-buttons="false"
-      v-if="char.abilityScores"
-      :char="char"
-    ></ability-scores>
+    <section>
+      <stat-tile
+        v-if="char.level"
+        :label="'Level'"
+        :adjustable="true"
+        @increment="$emit('levelUp')"
+        @decrement="$emit('levelDown')"
+        :value="char.level"
+      ></stat-tile>
+      <hp-tile
+        v-if="currentHp && hp"
+        :value="currentHp"
+        :max="hp"
+        v-on:click.native="$emit('selectTab', 'COMBAT')"
+      ></hp-tile>
+      <stat-tile
+        v-if="speed"
+        :label="'Walking Speed'"
+        :value="speed"
+        :suffix="'ft'"
+      ></stat-tile>
+    </section>
+    <h4>Ability Scores</h4>
+    <section>
+      <ability-scores
+        v-on:click.native="$emit('selectTab', 'COMBAT')"
+        :show-roll-buttons="false"
+        v-if="char.abilityScores"
+        :char="char"
+      ></ability-scores>
+    </section>
   </section>
 </template>
 <script>
@@ -62,7 +66,7 @@ export default {
   },
   props: {
     char: Object,
-    subrace: Object
+    subrace: Object,
   },
 }
 </script>

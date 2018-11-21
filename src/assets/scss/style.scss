@@ -71,6 +71,18 @@ h4 {
   #main {
     padding: 1rem;
     overflow-y: scroll;
+    section.tab {
+      > section {
+        justify-content: flex-start;
+        align-items: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        margin: -.5rem;
+        > * {
+          margin: .5rem;
+        }
+      }
+    }
   }
 }
 #proficiencies {
