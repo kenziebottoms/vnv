@@ -1,14 +1,16 @@
 <template>
   <section id="levelUp" class="tab">
-    <stat-tile
-      v-if="finalAbilityScores"
-      v-for="(stat, index) in finalAbilityScores"
-      v-on:click.native="select(index)"
-      :key="index"
-      :value="stat"
-      :label="index"
-      :class="{'has-shadow': isSelected(index)}"
-    ></stat-tile>
+    <section>
+      <stat-tile
+        v-if="finalAbilityScores"
+        v-for="(stat, index) in finalAbilityScores"
+        v-on:click.native="select(index)"
+        :key="index"
+        :value="stat"
+        :label="index"
+        :class="{'has-shadow': isSelected(index)}"
+      ></stat-tile>
+    </section>
   </section>
 </template>
 <script>

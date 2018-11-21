@@ -1,24 +1,31 @@
 <template>
-  <section v-if="char">
-    <stat-tile
-      :label="'Name'"
-      :suffix="char.fullName || char.name"
-    ></stat-tile>
-    <stat-tile
-      v-if="char.race"
-      :label="'Race'"
-      :suffix="subrace.name || char.race.name"
-    ></stat-tile>
-    <stat-tile
-      v-if="char.class"
-      :label="'Class'"
-      :suffix="char.class.name"
-    ></stat-tile>
-    <stat-tile
-      v-if="char.age"
-      :label="'Age'"
-      :value="char.age"
-    ></stat-tile>
+  <section v-if="char" id="personal" class="tab">
+    <section>
+      <stat-tile
+        :label="'Name'"
+        :suffix="char.fullName || char.name"
+      ></stat-tile>
+      <stat-tile
+        v-if="char.race"
+        :label="'Race'"
+        :suffix="subrace.name || char.race.name"
+      ></stat-tile>
+      <stat-tile
+        v-if="char.class"
+        :label="'Class'"
+        :suffix="char.class.name"
+      ></stat-tile>
+      <stat-tile
+        v-if="char.age"
+        :label="'Age'"
+        :value="char.age"
+      ></stat-tile>
+      <stat-tile
+        v-if="char.alignment"
+        :label="'Alignment'"
+        :suffix="char.alignment"
+      ></stat-tile>
+    </section>
   </section>
 </template>
 <script>
