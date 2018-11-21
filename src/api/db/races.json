@@ -9,6 +9,9 @@
       "darkvision": 60,
       "languages": ["Common", "Elvish"],
       "speed": 30,
+      "proficiencies": {
+        "skills": ["Perception"]
+      },
       "subraces": [
         {
           "id": 1,
@@ -34,7 +37,9 @@
             "CHA": 1
           },
           "spells": ["Minor Illusion"],
-          "proficiencies": ["PERFORMANCE"]
+          "proficiencies": {
+            "skills": ["Performance", null]
+          }
         }
       ]
     },
