@@ -45,7 +45,10 @@ export default {
   totalAbilityScores,
   getModifier,
   getHitPoints(level, hitDice, con) {
-    let avgHitDiceRoll = Math.floor(hitDice/2) + 1
+    let avgHitDiceRoll = Math.floor(hitDice / 2) + 1
     return hitDice + (level - 1) * (avgHitDiceRoll + getModifier(con))
+  },
+  printModifier(mod) {
+    return (mod >= 0 ? '+' : '') + mod
   },
 }

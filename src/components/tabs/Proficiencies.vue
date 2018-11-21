@@ -1,5 +1,10 @@
 <template>
   <section id="proficiencies">
+    <stat-tile
+      :label="'Proficiency Bonus'"
+      :suffix="printModifier(proficiencyBonus)"
+    >
+    </stat-tile>
     <h3>Skills</h3>
     <section v-if="char.class.proficiencies && char.skills">
       <h4>From {{char.class.name}} Class</h4>
@@ -60,8 +65,14 @@
 </template>
 <script>
 import Dropdown from '../elements/Dropdown.vue'
+import StatTile from '../elements/StatTile.vue'
+
+import stats from '../../utils/stats'
+let { totalAbilityScores, printModifier } = stats
+
 export default {
   components: {
+    StatTile,
     Dropdown,
   },
   methods: {
@@ -73,11 +84,12 @@ export default {
     save() {
       alert(validateForm())
     },
-    validateForm() {},
+    printModifier,
   },
   props: {
     char: Object,
     subrace: Object,
+    proficiencyBonus: Number,
   },
 }
 </script>

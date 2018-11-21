@@ -31,7 +31,7 @@ import RollButton from './elements/RollButton.vue'
 import _ from 'lodash'
 
 import stats from '../utils/stats'
-let { totalAbilityScores, getModifier } = stats
+let { totalAbilityScores, getModifier, printModifier } = stats
 
 export default {
   name: 'AbilityScores',
@@ -39,28 +39,24 @@ export default {
     RollButton,
   },
   computed: {
-    proficiency() {
-      return Math.floor(this.char.level / 4 + 2)
-    },
     finalAbilityScores() {
       return totalAbilityScores(this.char)
     },
   },
   methods: {
-    printModifier(mod) {
-      return (mod >= 0 ? '+' : '') + mod
-    },
+    printModifier,
     saveProficiency(stat) {
       return _.includes(this.char.class.savingThrows, stat)
     },
     saveBonus(stat) {
       return this.saveProficiency(stat) ? this.proficiency : 0
     },
-    getModifier
+    getModifier,
   },
   props: {
     showRollButtons: Boolean,
     char: Object,
+    proficiency: Number,
   },
 }
 </script>

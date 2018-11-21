@@ -58,6 +58,7 @@
         @setDamage="setDamage"
         v-if="tab=='COMBAT'"
         :char="characterData"
+        :proficiency="proficiency"
       ></combat-tab>
       <level-up-tab
         v-if="tab=='LEVEL_UP'"
@@ -66,6 +67,7 @@
       <proficiencies-tab
         v-if="tab=='PROFICIENCIES'"
         :char="characterData"
+        :proficiency-bonus="proficiency"
         :subrace="subrace"
       ></proficiencies-tab>
     </section>
@@ -131,9 +133,16 @@ export default {
         return null
       }
     },
+    proficiency() {
+      return Math.floor(this.characterData.level / 4 + 2)
+    },
     subrace() {
       if (!this.characterData || !this.characterData.race) return null
-      return this.characterData.subrace ? this.characterData.race.subraces.find(s => s.id == this.characterData.subrace) : this.characterData.race
+      return this.characterData.subrace
+        ? this.characterData.race.subraces.find(
+            s => s.id == this.characterData.subrace
+          )
+        : this.characterData.race
     },
   },
   created() {

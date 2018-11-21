@@ -15,7 +15,7 @@
       "abilityScores": {
         "base": {
           "STR": 8,
-          "DEX": 12,
+          "DEX": 14,
           "CON": 15,
           "INT": 14,
           "WIS": 16,
@@ -33,6 +33,13 @@
         "classProficiencies": ["Animal Handling", "Nature"],
         "raceProficiencies": ["Perception"],
         "subRaceProficiencies": []
+      },
+      "equipped": {
+        "armor": {
+          "name": "Leather Armor",
+          "AC": 11,
+          "Description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials."
+        }
       },
       "hitDice": 8,
       "damage": 13
