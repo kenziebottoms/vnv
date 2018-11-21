@@ -31,7 +31,8 @@
       },
       "skills": {
         "classProficiencies": ["Animal Handling", "Nature"],
-        "raceProficiencies": ["Perception"]
+        "raceProficiencies": ["Perception"],
+        "subRaceProficiencies": []
       },
       "hitDice": 8,
       "damage": 13

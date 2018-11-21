@@ -47,6 +47,7 @@
         @levelDown="levelDown"
         v-if="tab=='DEFAULT'"
         :char="characterData"
+        :subrace="subrace"
         @selectTab="selectTab"
       ></general-tab>
       <personal-tab
@@ -65,6 +66,7 @@
       <proficiencies-tab
         v-if="tab=='PROFICIENCIES'"
         :char="characterData"
+        :subrace="subrace"
       ></proficiencies-tab>
     </section>
   </div>
@@ -128,6 +130,10 @@ export default {
       } else {
         return null
       }
+    },
+    subrace() {
+      if (!this.characterData || !this.characterData.race) return null
+      return this.characterData.subrace ? this.characterData.race.subraces.find(s => s.id == this.characterData.subrace) : this.characterData.race
     },
   },
   created() {

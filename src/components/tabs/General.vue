@@ -55,21 +55,14 @@ export default {
     currentHp() {
       return this.hp - this.char.damage
     },
-    subrace() {
-      if (!this.char || !this.char.race) return null
-      if (this.char.subrace) {
-        return this.char.race.subraces.find(s => s.id == this.char.subrace)
-      } else {
-        return this.char.race
-      }
-    },
     speed() {
       if (!this.char.race) return null
-      return this.subrace.speed || this.char.race.speed
+      return (this.subrace ? this.subrace.speed : null) || this.char.race.speed
     },
   },
   props: {
     char: Object,
+    subrace: Object
   },
 }
 </script>
