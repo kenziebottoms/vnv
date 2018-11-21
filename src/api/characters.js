@@ -61,10 +61,12 @@ export default {
       })
   },
   updateDamage(charId, points) {
-    return axios
-      .patch(`${path}/${charId}`, { damage: points })
-      .then(response => {
-        return response.data
-      })
+    if (points >= 0) {
+      return axios
+        .patch(`${path}/${charId}`, { damage: points })
+        .then(response => {
+          return response.data
+        })
+    }
   },
 }
