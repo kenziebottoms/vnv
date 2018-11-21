@@ -62,16 +62,22 @@
         v-if="tab=='LEVEL_UP'"
         :char="characterData"
       ></level-up-tab>
+      <proficiencies-tab
+        v-if="tab=='PROFICIENCIES'"
+        :char="characterData"
+      ></proficiencies-tab>
     </section>
   </div>
 </template>
 
 <script>
-import Dropdown from './components/elements/Dropdown.vue'
 import GeneralTab from './components/tabs/General.vue'
 import CombatTab from './components/tabs/Combat.vue'
 import LevelUpTab from './components/tabs/LevelUp.vue'
 import PersonalTab from './components/tabs/Personal.vue'
+import ProficienciesTab from './components/tabs/Proficiencies.vue'
+
+import Dropdown from './components/elements/Dropdown.vue'
 import Actions from './components/Actions.vue'
 
 import users from './api/users'
@@ -101,6 +107,7 @@ export default {
     CombatTab,
     PersonalTab,
     GeneralTab,
+    ProficienciesTab,
     LevelUpTab,
   },
   computed: {
@@ -153,6 +160,10 @@ export default {
         {
           slug: 'LEVEL_UP',
           menuItem: 'Level Up',
+        },
+        {
+          slug: 'PROFICIENCIES',
+          menuItem: 'Proficiencies',
         },
       ],
     }
@@ -209,10 +220,10 @@ export default {
       this.characterData.damage = updatedChar.damage
     },
     activateUser(id) {
-      this.activeUserId = id
+      this.activeUserId = id.toString()
     },
     activateCharacter(id) {
-      this.activeCharacterId = id
+      this.activeCharacterId = id.toString()
     },
     selectTab(tab) {
       console.log(tab)
@@ -220,10 +231,9 @@ export default {
     },
   },
   mounted() {
-    if (ls.getItem('vnvUserId'))
-      this.activeUserId = parseInt(ls.getItem('vnvUserId'))
+    if (ls.getItem('vnvUserId')) this.activeUserId = ls.getItem('vnvUserId')
     if (ls.getItem('vnvCharId'))
-      this.activeCharacterId = parseInt(ls.getItem('vnvCharId'))
+      this.activeCharacterId = ls.getItem('vnvCharId')
   },
   watch: {
     activeUserId(newId) {

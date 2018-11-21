@@ -5,28 +5,30 @@
       "name": "Druid",
       "hitDice": 8,
       "savingThrows": ["WIS", "INT"],
-      "skills": [
-        [
-          "Arcana",
-          "Animal Handling",
-          "Insight",
-          "Medicine",
-          "Nature",
-          "Perception",
-          "Relgion",
-          "Survival"
-        ],
-        [
-          "Arcana",
-          "Animal Handling",
-          "Insight",
-          "Medicine",
-          "Nature",
-          "Perception",
-          "Relgion",
-          "Survival"
+      "proficiencies": {
+        "skills": [
+          [
+            "Arcana",
+            "Animal Handling",
+            "Insight",
+            "Medicine",
+            "Nature",
+            "Perception",
+            "Religion",
+            "Survival"
+          ],
+          [
+            "Arcana",
+            "Animal Handling",
+            "Insight",
+            "Medicine",
+            "Nature",
+            "Perception",
+            "Religion",
+            "Survival"
+          ]
         ]
-      ],
+      },
       "languages": ["Druidic"],
       "spellcasting": {
         "modifier": "WIS",

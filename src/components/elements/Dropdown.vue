@@ -1,14 +1,14 @@
 <template>
   <div class="select is-primary">
-  <select @input="e => {$emit('input', parseInt(e.target.value))}">
+  <select @input="e => {$emit('input', e.target.value)}">
       <option default value="">{{label}}</option>
       <option
-        v-for="item in items"
-        :key="item.id"
-        :value="item.id"
-        :selected="item.id==value"
+        v-for="(item, index) in items"
+        :key="item.id || index"
+        :value="item.id || item"
+        :selected="(item.id || item)==value"
       >
-        {{item[displayProp]}}
+        {{item[displayProp] || item}}
       </option>
     </select>
   </div>
@@ -18,7 +18,7 @@ export default {
   props: {
     label: String,
     items: Array,
-    value: Number,
+    value: String,
     displayProp: String,
   },
 }

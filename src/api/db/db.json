@@ -29,6 +29,9 @@
           }
         ]
       },
+      "skills": {
+        "classProficiencies": ["Animal Handling", "Nature"]
+      },
       "hitDice": 8,
       "damage": 13
     },
