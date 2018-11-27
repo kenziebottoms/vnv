@@ -1,0 +1,33 @@
+@import '../colors';
+
+#alignment {
+  display: grid;
+  grid-template: repeat(4, auto) / repeat(4, auto);
+  background: $white;
+  div:first-child {
+    background: $offwhite;
+  }
+  div:not(:first-child):not(.header) {    
+    padding: .75rem;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 300;
+    &.selected {
+      background: rgba($offwhite, .6);
+      color: $grape;
+      font-weight: 600;
+    }
+  }
+  .header {
+    vertical-align: middle;
+    background: $gray;
+    color: $white;
+    font-size: .85rem;
+    padding: .5rem 1rem;
+    text-align: center;
+    &.side {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+}
