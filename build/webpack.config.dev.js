@@ -4,7 +4,6 @@ const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   mode: 'development',
@@ -61,6 +60,4 @@ module.exports = {
       inject: true,
     }),
   ],
-  externals: [nodeExternals()],
-  devtool: 'inline-cheap-module-source-map',
 }
