@@ -7,18 +7,24 @@
     "build": "webpack --config build/webpack.config.dev.js",
     "db": "node src/api/db/db.js",
     "lint": "vue-cli-service lint",
-    "dev": "webpack-dev-server --config build/webpack.config.dev.js"
+    "dev": "webpack-dev-server --config build/webpack.config.dev.js",
+    "test": "mocha-webpack -w --webpack-config build/webpack.config.dev.js --require test/setup.js test/**/*.test.js"
   },
   "dependencies": {
+    "@vue/test-utils": "^1.0.0-beta.26",
     "axios": "^0.18.0",
     "bulma": "^0.7.2",
     "chai": "^4.2.0",
     "css-loader": "^1.0.1",
+    "expect": "^23.6.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^3.2.0",
+    "jsdom": "^13.0.0",
+    "jsdom-global": "^3.0.2",
     "json-server": "^0.14.0",
     "lodash": "^4.17.11",
     "mocha": "^5.2.0",
+    "mocha-webpack": "^2.0.0-beta.0",
     "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
@@ -26,7 +32,8 @@
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
     "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.1",

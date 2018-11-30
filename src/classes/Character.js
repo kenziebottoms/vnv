@@ -1,6 +1,6 @@
 import AbilityScores from './AbilityScores'
 
-class Character {
+export default class Character {
   constructor(
     name,
     owner,
