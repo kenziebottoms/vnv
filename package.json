@@ -8,7 +8,7 @@
     "db": "node src/api/db/db.js",
     "lint": "vue-cli-service lint",
     "dev": "webpack-dev-server --config build/webpack.config.dev.js",
-    "test": "mocha-webpack -w --webpack-config build/webpack.config.dev.js --require test/setup.js test/**/*.test.js"
+    "test": "mocha-webpack -w --webpack-config build/webpack.config.test.js --require test/setup.js test/**/*.test.js"
   },
   "dependencies": {
     "@vue/test-utils": "^1.0.0-beta.26",
