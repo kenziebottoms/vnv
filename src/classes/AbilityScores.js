@@ -13,10 +13,14 @@ export default class AbilityScores {
       other: null,
     }
   }
-  total() {
+  total(level = 20) {
     let totals = _.clone(this.base)
     for (let stat in this.base) {
-      totals[stat] += _.sumBy(_.flattenDeep(this.improvements), stat) || 0
+      totals[stat] +=
+        _.sumBy(
+          _.flattenDeep(this.improvements.filter(i => i.level <= level)),
+          stat
+        ) || 0
       totals[stat] += _.sumBy(_.values(this.bonuses), stat) || 0
     }
     return totals

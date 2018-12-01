@@ -34,6 +34,13 @@ describe('AbilityScores class', () => {
       assert.equal(ab.total().DEX, validAbilityScores.DEX)
       assert.equal(ab.total().CON, validAbilityScores.CON + 1)
     })
+    it('should total up correctly: level-sensitive', () => {
+      let ab = new AbilityScores(validAbilityScores)
+      ab.improve(4, { STR: 1, CON: 1 })
+      assert.equal(ab.total(3).STR, validAbilityScores.STR)
+      assert.equal(ab.total(3).DEX, validAbilityScores.DEX)
+      assert.equal(ab.total(3).CON, validAbilityScores.CON)
+    })
     it('should treat duplicate level improvements as replacements', () => {
       let ab = new AbilityScores(validAbilityScores)
       ab.improve(4, { STR: 1, CON: 1 })
