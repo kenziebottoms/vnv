@@ -32,4 +32,10 @@ export default class Character {
     this.weapons = []
     this.damage = 0
   }
+  improve(level, abilityScores) {
+    this.abilityScores.improve(level, abilityScores)
+  }
+  totalAbilityScores() {
+    return this.abilityScores.total()
+  }
 }
