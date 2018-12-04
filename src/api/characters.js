@@ -2,6 +2,8 @@ import axios from 'axios'
 
 const path = 'http://localhost:3000/characters'
 
+import Character from '../classes/Character'
+
 import races from './races'
 import classes from './classes'
 
@@ -10,12 +12,12 @@ let { getClass } = classes
 
 let getCharacter = id => {
   return axios.get(`${path}/${id}`).then(response => {
-    return response.data
+    return new Character(response.data)
   })
 }
 let updateCharacter = char => {
   return axios.patch(`${path}/${char.id}`, char).then(response => {
-    return response.data
+    return new Character(response.data)
   })
 }
 

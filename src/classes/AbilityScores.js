@@ -4,13 +4,20 @@ import { races } from '../api/db/races.json'
 import { classes } from '../api/db/classes.json'
 
 export default class AbilityScores {
-  constructor({ STR, DEX, CON, INT, WIS, CHA }) {
-    this.base = { STR, DEX, CON, INT, WIS, CHA }
-    this.improvements = []
+  constructor(jsonObj) {
+    this.base = {
+      STR: jsonObj.base.STR || 0,
+      DEX: jsonObj.base.DEX || 0,
+      CON: jsonObj.base.CON || 0,
+      INT: jsonObj.base.INT || 0,
+      WIS: jsonObj.base.WIS || 0,
+      CHA: jsonObj.base.CHA || 0,
+    }
+    this.improvements = jsonObj.improvements
     this.bonuses = {
-      race: null,
-      subrace: null,
-      other: null,
+      race: jsonObj.race,
+      subrace: jsonObj.subrace,
+      other: jsonObj.other,
     }
   }
   total(level = 20) {
