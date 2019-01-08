@@ -6,7 +6,7 @@
       "level": 5,
       "name": "Tantis",
       "fullName": "Tantis Silmanelle",
-      "class": 1,
+      "classes": [{ "id": 1, "level": 5 }],
       "race": 1,
       "subrace": 1,
       "created": 1542137792002,
@@ -54,7 +54,6 @@
           "type": "Melee"
         }
       ],
-      "hitDice": 8,
       "damage": 13
     },
     {

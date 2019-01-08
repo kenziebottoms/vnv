@@ -6,13 +6,14 @@ export default class Character {
     this.name = jsonObj.name
     this.fullName = jsonObj.name
     this.owner = jsonObj.owner
+    if (!jsonObj.hasOwnProperty('race')) throw new Error('Specify a race')
     this.race = jsonObj.race
+    if (!jsonObj.hasOwnProperty('subrace')) throw new Error('Specify a subrace')
     this.subrace = jsonObj.subrace
     this.class = jsonObj.class
     this.abilityScores = new AbilityScores(jsonObj.abilityScores)
     if (!this.abilityScores.bonuses.race)
       this.abilityScores.setRaceSubrace(this.race, this.subrace)
-    this.hitDice = jsonObj.hitDice
     this.level = jsonObj.level || 1
     this.created = jsonObj.created || Date.now()
     this.proficiencies = jsonObj.proficiencies

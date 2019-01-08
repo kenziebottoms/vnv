@@ -1,53 +1,55 @@
 import AbilityScores from '../../src/classes/AbilityScores'
 import { assert } from 'chai'
 
-let validAbilityScores = { STR: 1, DEX: 2, CON: 3, INT: 4, WIS: 5, CHA: 6 }
+let validAbilityScores = {
+  base: { STR: 1, DEX: 2, CON: 3, INT: 4, WIS: 5, CHA: 6 },
+}
 
 describe('AbilityScores class', () => {
   describe('Valid object without improvements', () => {
     it('should persist the supplied base values', () => {
       let ab = new AbilityScores(validAbilityScores)
-      assert.equal(ab.base.STR, validAbilityScores.STR)
-      assert.equal(ab.base.DEX, validAbilityScores.DEX)
-      assert.equal(ab.base.CON, validAbilityScores.CON)
-      assert.equal(ab.base.INT, validAbilityScores.INT)
-      assert.equal(ab.base.WIS, validAbilityScores.WIS)
-      assert.equal(ab.base.CHA, validAbilityScores.CHA)
+      assert.equal(ab.base.STR, validAbilityScores.base.STR)
+      assert.equal(ab.base.DEX, validAbilityScores.base.DEX)
+      assert.equal(ab.base.CON, validAbilityScores.base.CON)
+      assert.equal(ab.base.INT, validAbilityScores.base.INT)
+      assert.equal(ab.base.WIS, validAbilityScores.base.WIS)
+      assert.equal(ab.base.CHA, validAbilityScores.base.CHA)
     })
     it('should total up correctly', () => {
       let ab = new AbilityScores(validAbilityScores)
-      assert.equal(ab.total().STR, validAbilityScores.STR)
+      assert.equal(ab.total().STR, validAbilityScores.base.STR)
     })
   })
   describe('Valid object with improvements', () => {
     it('should persist the supplied base values', () => {
       let ab = new AbilityScores(validAbilityScores)
       ab.improve(4, { STR: 1, CON: 1 })
-      assert.equal(ab.base.STR, validAbilityScores.STR)
-      assert.equal(ab.base.DEX, validAbilityScores.DEX)
-      assert.equal(ab.base.CON, validAbilityScores.CON)
+      assert.equal(ab.base.STR, validAbilityScores.base.STR)
+      assert.equal(ab.base.DEX, validAbilityScores.base.DEX)
+      assert.equal(ab.base.CON, validAbilityScores.base.CON)
     })
     it('should total up correctly', () => {
       let ab = new AbilityScores(validAbilityScores)
       ab.improve(4, { STR: 1, CON: 1 })
-      assert.equal(ab.total().STR, validAbilityScores.STR + 1)
-      assert.equal(ab.total().DEX, validAbilityScores.DEX)
-      assert.equal(ab.total().CON, validAbilityScores.CON + 1)
+      assert.equal(ab.total().STR, validAbilityScores.base.STR + 1)
+      assert.equal(ab.total().DEX, validAbilityScores.base.DEX)
+      assert.equal(ab.total().CON, validAbilityScores.base.CON + 1)
     })
     it('should total up correctly: level-sensitive', () => {
       let ab = new AbilityScores(validAbilityScores)
       ab.improve(4, { STR: 1, CON: 1 })
-      assert.equal(ab.total(3).STR, validAbilityScores.STR)
-      assert.equal(ab.total(3).DEX, validAbilityScores.DEX)
-      assert.equal(ab.total(3).CON, validAbilityScores.CON)
+      assert.equal(ab.total(3).STR, validAbilityScores.base.STR)
+      assert.equal(ab.total(3).DEX, validAbilityScores.base.DEX)
+      assert.equal(ab.total(3).CON, validAbilityScores.base.CON)
     })
     it('should treat duplicate level improvements as replacements', () => {
       let ab = new AbilityScores(validAbilityScores)
       ab.improve(4, { STR: 1, CON: 1 })
       ab.improve(4, { STR: 2, CON: 2 })
-      assert.equal(ab.total().STR, validAbilityScores.STR + 2)
-      assert.equal(ab.total().DEX, validAbilityScores.DEX)
-      assert.equal(ab.total().CON, validAbilityScores.CON + 2)
+      assert.equal(ab.total().STR, validAbilityScores.base.STR + 2)
+      assert.equal(ab.total().DEX, validAbilityScores.base.DEX)
+      assert.equal(ab.total().CON, validAbilityScores.base.CON + 2)
     })
   })
   describe('Valid object with race/subrace bonuses', () => {
@@ -60,15 +62,15 @@ describe('AbilityScores class', () => {
     it('should total up correctly', () => {
       let ab = new AbilityScores(validAbilityScores)
       ab.setRaceSubrace(1, 1)
-      assert.equal(ab.total().DEX, validAbilityScores.DEX + 2)
-      assert.equal(ab.total().WIS, validAbilityScores.WIS + 1)
+      assert.equal(ab.total().DEX, validAbilityScores.base.DEX + 2)
+      assert.equal(ab.total().WIS, validAbilityScores.base.WIS + 1)
     })
     it('should stack with improvements', () => {
       let ab = new AbilityScores(validAbilityScores)
       ab.improve(4, { DEX: 2 })
       ab.setRaceSubrace(1, 1)
-      assert.equal(ab.total().WIS, validAbilityScores.WIS + 1)
-      assert.equal(ab.total().DEX, validAbilityScores.DEX + 4)
+      assert.equal(ab.total().WIS, validAbilityScores.base.WIS + 1)
+      assert.equal(ab.total().DEX, validAbilityScores.base.DEX + 4)
     })
   })
   describe('Valid object with other bonuses', () => {
@@ -80,7 +82,7 @@ describe('AbilityScores class', () => {
     it('should total up correctly', () => {
       let ab = new AbilityScores(validAbilityScores)
       ab.addBonus({ STR: 1 })
-      assert.equal(ab.total().STR, validAbilityScores.STR + 1)
+      assert.equal(ab.total().STR, validAbilityScores.base.STR + 1)
     })
     it('should replace other other bonuses', () => {
       let ab = new AbilityScores(validAbilityScores)
@@ -92,15 +94,15 @@ describe('AbilityScores class', () => {
       let ab = new AbilityScores(validAbilityScores)
       ab.setRaceSubrace(1, 1)
       ab.addBonus({ STR: 1 })
-      assert.equal(ab.total().STR, validAbilityScores.STR + 1)
-      assert.equal(ab.total().DEX, validAbilityScores.DEX + 2)
-      assert.equal(ab.total().WIS, validAbilityScores.WIS + 1)
+      assert.equal(ab.total().STR, validAbilityScores.base.STR + 1)
+      assert.equal(ab.total().DEX, validAbilityScores.base.DEX + 2)
+      assert.equal(ab.total().WIS, validAbilityScores.base.WIS + 1)
     })
     it('should stack with improvements', () => {
       let ab = new AbilityScores(validAbilityScores)
       ab.improve(4, { STR: 2 })
       ab.addBonus({ STR: 1 })
-      assert.equal(ab.total().STR, validAbilityScores.STR + 3)
+      assert.equal(ab.total().STR, validAbilityScores.base.STR + 3)
     })
   })
 })

@@ -13,7 +13,7 @@ export default class AbilityScores {
       WIS: jsonObj.base.WIS || 0,
       CHA: jsonObj.base.CHA || 0,
     }
-    this.improvements = jsonObj.improvements
+    this.improvements = jsonObj.improvements || []
     this.bonuses = {
       race: jsonObj.race,
       subrace: jsonObj.subrace,
